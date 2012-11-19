@@ -33,9 +33,16 @@ a:link, a:visited{color:#eee; text-decoration:none;}
 #header_right{width:170px;height: 100px;line-height: 50px;float:left;}
 #line{width:960px; height:1px;background-color:#888;}
 #content{overflow:auto; padding:0;}
+
+#content #navabar_add {width:960px;height:50px;}
+
 #fast_search{width:260px;height:380px;float:left;padding:10px; }
 #main_content{width:660px;padding: 10px;}
 #footer{color:#888; text-align:center; padding: 20px;}
+
+#content table{width:90%;margin:0 auto;}
+#content th{border-top:solid 5px;border-bottom:solid 5px;}
+#content table, th, td{border-style:none;padding:10px;text-align:center;}
 
 #navbar ul {margin:0;padding:0;}
 #navbar ul li {float:left;padding:0;}
@@ -48,4 +55,17 @@ a:link, a:visited{color:#eee; text-decoration:none;}
 	font: bold 12px Tahoma;
 }
 #navbar ul li a:hover,a:active{background-color:#30BD19; color:#fff;}
+
+
+#content #navbar_add ul {margin:0;padding:0;}
+#content #navbar_add ul li {float:left;padding:0;}
+
+#content #navbar_add ul li a{
+	display:block; 
+	color:#888; 
+	text-align:center;
+	padding:10px; 
+	font: bold 12px Tahoma;
+}
+#content #navbar_add ul li a:hover,a:active{background-color:#30BD19; color:#fff;}
 
