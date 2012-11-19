@@ -54,9 +54,10 @@ a:link, a:visited{color:#eee; text-decoration:none;}
 	padding:10px; 
 	font: bold 12px Tahoma;
 }
+
+#navbar_add {width:300px; height:30px;margin:0 auto;}
+
 #navbar ul li a:hover,a:active{background-color:#30BD19; color:#fff;}
-
-
 #content #navbar_add ul {margin:0;padding:0;}
 #content #navbar_add ul li {float:left;padding:0;}
 
@@ -69,3 +70,4 @@ a:link, a:visited{color:#eee; text-decoration:none;}
 }
 #content #navbar_add ul li a:hover,a:active{background-color:#30BD19; color:#fff;}
 
+#infoform {border: 1px solid #ccc; padding: 0 100px;}
