@@ -10,29 +10,62 @@
 <body>
 	<div id = "wrap">
 		<div id = "top">
-			<img src="4.jpg" alt="anicom로고">
+			<img src="images/4.jpg" alt="anicom로고">
 			
 		</div>
 
-		<div id = "content">
-			<div id = "main_content">
-				<form action = " " method = "post">
-					ID: <input type = "text" name = "id" size = "10"/> 
-					<input type = "button" value = "중복조회" /> <br/> 
-					PW: <input type = "text" name = "password" size = "10" /> <br/>
-					PW확인: <input type = "text" name = "password check" size = "10" /> <br/>
-					병원이름: <input type = "text" name = "name" size = "10" /> <br/>
-					휴대폰: <select name = "front number" /> 
-					<option value = "010">010</option>
-					<option value = "011">011</option>
-					<option value = "016">016</option>
-					<option value = "017">017</option>
-					<option value = "018">018</option>
-					<option value = "019">019</option> 
-					</select> -
-					<input type = "text" name = "phone" size = "2" /> -
-					<input type = "text" name = "phone" size = "2" /> <br/>
-					주소: <input = "text" name = "address" size = "15" /> <br/>
+		<form action = " " method = "post">
+					<table boder = "1">
+						<tbody>
+							<tr>
+								<td>ID:</td>
+								<td>
+									<input type = "text" name = "id" size = "10"/> 
+									<input type = "button" value = "중복조회" />
+								</td>
+							</tr>
+							<tr>
+								<td>PW:</td>
+								<td>
+									<input type = "text" name = "password" size = "10" />
+								</td>
+							</tr>
+							<tr>
+								<td>PW확인:</td>
+								<td>
+									 <input type = "text" name = "password check" size = "10" />
+								</td>
+							</tr>
+							<tr>
+								<td>병원이름:</td>
+								<td>
+									<input type = "text" name = "name" size = "10" /> <br/>
+								</td>
+							</tr>	
+							<tr>
+								<td>휴대폰:</td>
+								<td>
+									<select name = "front number" /> 
+										<option value = "010">010</option>
+										<option value = "011">011</option>
+										<option value = "016">016</option>
+										<option value = "017">017</option>
+										<option value = "018">018</option>
+										<option value = "019">019</option> 
+									</select> -
+									<input type = "text" name = "phone" size = "2" /> -
+									<input type = "text" name = "phone" size = "2" /> <br/>
+								</td>
+							</tr>
+							<tr>
+								<td>주소:</td>
+								<td>
+									<input type = "text" name = "address" size = "40"/> 
+								</td>
+							</tr>
+						</tbody>
+
+					</table>
 					<input type = "submit" value = "회원가입"/>	
 				</form>
 				
