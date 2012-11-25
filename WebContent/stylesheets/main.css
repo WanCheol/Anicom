@@ -31,14 +31,14 @@ a:link, a:visited{color:#eee; text-decoration:none;}
 #navbar_top{width:450px; height:50px;}
 #navbar_bottom{width: 450px;height: 50px; }
 #header_right{width:170px;height: 100px;line-height: 50px;float:left;}
-#line{width:960px; height:1px;background-color:#888;}
-#content{overflow:auto; padding:0;}
+#line{width:960px; height:1px;background-color:#888;float:left;}
+#content{width:100%; height:100%; padding:0;}
 
 #content #navabar_add {width:960px;height:50px;}
 
-#fast_search{width:260px;height:380px;float:left;padding:10px; }
+#content #searchbox{width:260px;height:380px;float:left;padding:10px; }
 #main_content{width:660px;padding: 10px;}
-#footer{color:#888; text-align:center; padding: 20px;}
+#footer{color:#888;width: 100%; text-align:center; padding: 20px; float:left; }
 
 #content table{width:90%;margin:0 auto;}
 #content th{border-top:solid 5px;border-bottom:solid 5px;}
@@ -71,3 +71,25 @@ a:link, a:visited{color:#eee; text-decoration:none;}
 #content #navbar_add ul li a:hover,a:active{background-color:#30BD19; color:#fff;}
 
 #infoform {border: 1px solid #ccc; padding: 0 100px;}
+
+
+#content_left{width: 300px; float:left;}
+
+#content #searchresult table{width:250px;height:600px;padding:10px;}
+
+#content #searchbox { height: 150px; padding: 30px;}
+
+
+#hospitalinfo_top{padding:10px;width: 600px;height: 100px; float:left;}
+
+#hospitalinfo_top #hospital_name{padding:10px; font-size : 30px; width:350px; height:100px;float: left;}
+
+#hospitalinfo_top #button{padding:10px; width: 200px; height:100px; float: left;}
+
+#button input{width:100px;height: 50px;}
+
+#hospitalinfo{width: 600px;height:900px;float:left;}
+
+#hospitalinfo #introduce{padding:20px;width:100%; height :500px;float:left;}
+
+#hospitalinfo #comment{padding:20px;width:100%;height: 300px;}
