@@ -1,7 +1,7 @@
 html{color:#000;
 	/*background:#fff*/; 
 	padding:20px 0;
-	font: 12px/18px "맑은 고딕", "Malgun Gothic", "굴림", "Gulim", Verdana, Arial, Tahoma;
+	font: 12px/18px "留묒� 怨좊뵓", "Malgun Gothic", "援대┝", "Gulim", Verdana, Arial, Tahoma;
 }
 body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,button,textarea,p,blockquote,th,td{margin:0;padding:0;}
 table{border-collapse:collapse;border-spacing:0;}
@@ -75,7 +75,7 @@ a:link, a:visited{color:#eee; text-decoration:none;}
 
 #content_left{width: 300px; float:left;}
 
-#content #searchresult table{width:250px;height:600px;padding:10px;}
+#content #searchresult table{width:250px;height:280px;padding:10px;}
 
 #content #searchbox { height: 150px; padding: 30px;}
 
@@ -93,3 +93,4 @@ a:link, a:visited{color:#eee; text-decoration:none;}
 #hospitalinfo #introduce{padding:20px;width:100%; height :500px;float:left;}
 
 #hospitalinfo #comment{padding:20px;width:100%;height: 300px;}
+a.hos_name{color:#000;}
