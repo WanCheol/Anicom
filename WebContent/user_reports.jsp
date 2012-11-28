@@ -6,6 +6,7 @@
 <meta charset="UTF-8">
 <title>회원 징료 소견서 페이지</title>
 	<link rel="stylesheet" type="text/css" href="./stylesheets/main.css">
+	<script src="js/jquery-1.8.2.min.js"></script>
 </head>
 <body>
 <div id="wrap">
@@ -56,7 +57,7 @@
 						<td><a href="report.jsp">우리들의원</a></td>
 						<td>2012-11-14</td>
 						<td>
-							<input type="button" value=" 평점주기 " id="change">
+							<input type="button" value=" 평점주기 " onClick="window.open('comment.jsp','평점주기','width=250 height=200')" id="change">
 						
 						</td>
 					</tr>
