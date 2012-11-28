@@ -15,4 +15,4 @@ CREATE TABLE books (
 	descript text
 );
 
-INSERT INTO users VALUES ('wodls','123','jaein','wodls0209@naver.com','031-657-2000');
+INSERT INTO books VALUES (1,'wodls','hos1','2012-12-08','10','Dog','cold');

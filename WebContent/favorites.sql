@@ -12,4 +12,4 @@ CREATE TABLE favorites (
 	
 );
 
-INSERT INTO users VALUES ('wodls','123','jaein','wodls0209@naver.com','031-657-2000');
+INSERT INTO favorites VALUES (1,'uhoo1006','hos2');

@@ -12,4 +12,4 @@ CREATE TABLE comments (
 	comment text
 );
 
-INSERT INTO users VALUES ('wodls','123','jaein','wodls0209@naver.com','031-657-2000');
+INSERT INTO comments VALUES (1,'dayeon','?....','Good!');
