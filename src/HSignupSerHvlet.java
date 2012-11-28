@@ -33,6 +33,8 @@ public class HSignupSerHvlet extends HttpServlet {
 		
 		String phonenumber = frontnumber + phonenumber1 + phonenumber2;
 		
+		String sql = "insert into member (id, password, name, phone, address) ";
+		sql += "values('" +id+ "', '" +pw+ "', '"+ name +"', '" +phonenumber+"', '"+address+"')";
 	}
 
 }

@@ -33,6 +33,9 @@ public class GSignupServlet extends HttpServlet {
 		String email = (request.getParameter("email"));
 		
 		String phonenumber = frontnumber + phonenumber1 + phonenumber2;
+		
+		String sql = "insert into member (id, password, name, phone, email) ";
+		sql += "values('" +id+ "', '" +pw+ "', '"+ name +"', '" +phonenumber+"', '"+email+"')"; 
 	}
 
 }
