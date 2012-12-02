@@ -1,3 +1,6 @@
+<%-- signup_guest.jsp로 바꿈 --%>
+
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" import="java.util.*"  import="java.sql.*" 
 		%>
@@ -116,15 +119,6 @@
 					</div>
 	
 				<% } %>
-	<%--
-					<div class="control-group">
-						<label class="control-label" for="pw_confirm">Password Confirmation</label>
-						<div class="controls">
-							<input type="password" name="pw_confirm">
-						</div>
-					</div>
-				<% } %>
- --%>
 				
 				<div class="control-group">
 					E-mail

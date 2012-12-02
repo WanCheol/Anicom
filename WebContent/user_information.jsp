@@ -1,5 +1,3 @@
-<%-- user_information.jsp --%>
-
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" import="java.sql.*" import="java.util.*" 
     %>
@@ -66,21 +64,84 @@
 			if (conn != null) try{conn.close();} catch(SQLException e) {}
 		}
 	}
-%>    
+%>  
+
 <!DOCTYPE html>
 <html>
 <head>
 	<meta charset="UTF-8">
 	<title>회원목록</title>
 
-	<link href="css/base.css" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="./stylesheets/main.css">
 	<script src="js/jquery-1.8.2.min.js"></script>
-
 </head>
+
 <body>
+	<div id="wrap">
+		<div id="header">
+			<div id="header_left"><a href ="#"><img src="./images/4.jpg" alt="anicom로고"></a></div>
+			<div id="navbar">
+				<div id="navbar_top"></div>
+				<div id="navbar_bottom">
+				<ul>
+					<li><a href="#">검색하기</a></li>
+					<li><a href="#">커뮤니티</a></li>
+					<li><a href="#">예약가이드</a></li>
+				</ul>
+				</div>
+			</div>
+			<div id="header_right">
+				
+					<a href="#">로그인</a>
+					<a href="#">회원가입</a>
+				
+			</div>
+			
+		</div>
+		<div id="line"></div>
+		
+ 	<div id="content"> 
 
+			<div id="navbar_add">
+				<ul>
+					<li><a href="#">내 정보</a></li>
+					<li><a href="#">관심병원</a></li>
+					<li><a href="#">예약확인</a></li>
+					<li><a href="#">진료소견서</a></li>
+				</ul>
+			</div>
 
- 	<div class="container">
+			<br/>
+			
+<%-- 
+			<form id="infoform" action = "" method = "post">
+					아이디 : <input type = "text" name = "id" size = "20" value = " hello"/> <br/>
+					비밀번호 : <input type = "password" name = "password" size = "20" value = " hello"/> <br/>
+					비밀번호 재입력: <input type = "password" name = "password check" size = "20" value = " hello"/> <br/>
+					이름: <input type = "text" name = "name" size = "10" value = "홍길동"/> <br/>
+					휴대폰:<select name = "frontnumber" > 
+								<option value = "010">010</option>
+								<option value = "011">011</option>
+								<option value = "016">016</option>
+								<option value = "017">017</option>
+								<option value = "018">018</option>
+								<option value = "019">019</option> 
+						</select> -
+					<input type = "text" name = "phone" size = "4" value = " 1234"/> -
+					<input type = "text" name = "phone" size = "4" value = " 1234"/> <br/>
+					<input type = "submit" value = " 수정 "/>	
+				</form>
+				
+			<br/>
+--%>
+
+		</div>
+		<div id="line"></div>
+		<div id="footer">footer</div>
+	</div>
+
+	
+	 	<div class="container">
  		<% if (errorMsgs.size() > 0) { %>
  			<div class="alert alert-error">
  				<h3>Errors:</h3>
@@ -100,5 +161,7 @@
 		 	
 	 	<% } %>
  	</div>
+	
 </body>
+
 </html>

@@ -17,7 +17,14 @@
 //	String pw_confirm = request.getParameter("pw_confirm");
 	String name = request.getParameter("name");
 	String email = request.getParameter("email");
-	String phone = request.getParameter("phone");
+
+	//String phone = request.getParameter("phone");
+	String frontnumber = (request.getParameter("frontnumber"));
+	String phonenumber1 = (request.getParameter("phonenumber1"));
+	String phonenumber2 = (request.getParameter("phonenumber2"));
+	
+	String phone = frontnumber + phonenumber1 + phonenumber2;
+	
 	
 	List<String> errorMsgs = new ArrayList<String>();
 	int result = 0;
