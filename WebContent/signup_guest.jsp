@@ -22,6 +22,7 @@
 	String name = "";
 	String email = "";
 	String phone = "";
+	String guest = "guest";
 	
 	
 	// Request로 ID가 있는지 확인

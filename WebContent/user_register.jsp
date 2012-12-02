@@ -25,6 +25,7 @@
 	
 	String phone = frontnumber + phonenumber1 + phonenumber2;
 	
+	String guest = "guest";
 	
 	List<String> errorMsgs = new ArrayList<String>();
 	int result = 0;
@@ -52,14 +53,15 @@
 			Class.forName("com.mysql.jdbc.Driver");
 			conn = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
 			stmt = conn.prepareStatement(
-					"INSERT INTO users(user_id, name, pw, email, phone) " +
-					"VALUES(?, ?, ?, ?, ?)"
+					"INSERT INTO users(user_id, name, pw, email, phone, guest) " +
+					"VALUES(?, ?, ?, ?, ?, ?)"
 					);
 			stmt.setString(1,  user_id);
 			stmt.setString(2,  name);
 			stmt.setString(3,  pw);
 			stmt.setString(4,  email);
 			stmt.setString(5,  phone);
+			stmt.setString(6, guest);
 
 			
 			result = stmt.executeUpdate();
