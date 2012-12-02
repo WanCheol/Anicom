@@ -31,7 +31,7 @@
 
 	if (id > 0) {
 		// Request에 id가 있으면 update모드라 가정
-		actionUrl = "newupdate.jsp";
+		actionUrl = "user_update.jsp";
 		try {
 		    Class.forName("com.mysql.jdbc.Driver");
 
@@ -62,7 +62,7 @@
 			if (conn != null) try{conn.close();} catch(SQLException e) {}
 		}
 	} else {
-		actionUrl = "newregister.jsp";
+		actionUrl = "user_register.jsp";
 	}
 %>    
 <!DOCTYPE html>
