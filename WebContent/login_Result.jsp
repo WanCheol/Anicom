@@ -11,13 +11,14 @@
 <% 
 String id = (String) session.getAttribute("id"); 
 String pw = (String) session.getAttribute("pw"); 
-
+String guest = (String) session.getAttribute("guest"); 
 if (id == null || pw == null) { 
 out.println("로그인 실패(세션값 상실)"); 
 
 } else { 
 
 out.println(id + "님 환영합니다."); 
+out.println(guest); 
 
 } 
 %> 

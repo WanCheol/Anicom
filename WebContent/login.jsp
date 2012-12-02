@@ -25,9 +25,12 @@
 					<input type = "password" name = "password" size = "15"/> <br/>
 				</td>
 			</tr>
+<!-- String id = (String)session.getAttribute("id")-->
 
 		</tbody>
 	</table>
+	<input type = "radio" name = "guest" value ="guest" checked> 회원
+	<input type = "radio" name = "guest" value = "hospital"> 병원 </br>
 	<input type = "submit" value = "로그인"/>
 	<!-- <input type = "submit" value = "회원가입"/> -->
  </form>

@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" import="java.sql.*"%>
+    pageEncoding="UTF-8" import="java.sql.*" import="java.util.*"%>
 <%@ page session="true" %>    
 <%
 Connection conn = null;
@@ -13,28 +13,38 @@ String errorMsg = null;
 
 String id = (request.getParameter("id"));
 String pw = (request.getParameter("password"));	
+String guest = (request.getParameter("guest"));
 
+request.setCharacterEncoding("utf-8");
 try {
     Class.forName("com.mysql.jdbc.Driver");
 	conn = DriverManager.getConnection(dbUrl, dbUser, dbPassword);		
-	stmt = conn.createStatement();	
-	rs = stmt.executeQuery("select * from users where id='"+ id + "';"); 
+	stmt = conn.createStatement();
+	if(guest.length() < 6){
+		rs = stmt.executeQuery("select * from users where id='"+ id + "';"); 
+	}else
+		rs = stmt.executeQuery("select * from hospitals where id='"+ id + "';"); 
+		//rs = stmt.executeQuery("select * from users where id='"+ id + "';");
 
+	
 	while(rs.next()) { 
 	String password = rs.getString("pw"); 
-	
-	if(pw.equals(password)) { 
-	out.println("일치"); 
-	session.setAttribute("id", id); 
-	session.setAttribute("pw", pw); 
-	response.sendRedirect("login_Result.jsp"); 
-	} else 
-	out.println("비밀번호가 틀렸습니다."); 
+
+		if(pw.equals(password)) { 
+			if(guest.length() < 6){
+				session.setAttribute("guest", "일반회원");
+			}else
+				session.setAttribute("guest", "병원회원"); 
+		session.setAttribute("id", id); 
+		session.setAttribute("pw", pw);
+		response.sendRedirect("login_Result.jsp"); 
+		} 
 	}
 	
-	}catch (SQLException e) {
+	out.println("아이디와 비밀번호를 다시 확인해 주십시요.");
+}catch (SQLException e) {
 	errorMsg = "SQL 에러: " + e.getMessage();
-	}finally {
+}finally {
 	// 무슨 일이 있어도 리소스를 제대로 종료
 	if (rs != null) try{rs.close();} catch(SQLException e) {}
 	if (stmt != null) try{stmt.close();} catch(SQLException e) {}
