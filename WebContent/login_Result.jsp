@@ -19,7 +19,7 @@ out.println("로그인 실패(세션값 상실)");
 
 out.println(id + "님 환영합니다."); 
 out.println(guest); 
-
+response.sendRedirect("main.jsp"); 
 } 
 %> 
 

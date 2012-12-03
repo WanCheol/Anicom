@@ -21,9 +21,9 @@ try {
 	conn = DriverManager.getConnection(dbUrl, dbUser, dbPassword);		
 	stmt = conn.createStatement();
 	if(guest.length() < 6){
-		rs = stmt.executeQuery("select * from users where id='"+ id + "';"); 
+		rs = stmt.executeQuery("select * from users where user_id='"+ id + "';"); 
 	}else
-		rs = stmt.executeQuery("select * from hospitals where id='"+ id + "';"); 
+		rs = stmt.executeQuery("select * from hospitals where hospital_id='"+ id + "';"); 
 		//rs = stmt.executeQuery("select * from users where id='"+ id + "';");
 
 	
