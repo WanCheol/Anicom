@@ -10,12 +10,12 @@
 <body>
 	<div id="wrap">
 		<div id="header">
-			<div id="header_left"><a href ="#"><img src="./images/4.jpg" alt="anicom로고"></a></div>
+			<div id="header_left"><a href ="main.jsp"><img src="./images/4.jpg" alt="anicom로고"></a></div>
 			<div id="navbar">
 				<div id="navbar_top"></div>
 				<div id="navbar_bottom">
 				<ul>
-					<li><a href="#">검색하기</a></li>
+					<li><a href="search.jsp">검색하기</a></li>
 					<li><a href="#">커뮤니티</a></li>
 					<li><a href="#">예약가이드</a></li>
 				</ul>
@@ -23,7 +23,7 @@
 			</div>
 			<div id="header_right">
 				
-					<a href="#">로그인</a>
+					<a href="login.jsp">로그인</a>
 					<a href="#">회원가입</a>
 				
 			</div>
