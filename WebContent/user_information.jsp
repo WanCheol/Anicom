@@ -18,7 +18,7 @@
 	try {
 		id = Integer.parseInt(request.getParameter("id"));
 	} catch (Exception e) {}
-	String userid = request.getParameter("id");
+	String user_id = request.getParameter("user_id");
 	String name = request.getParameter("name");
 	String email = request.getParameter("email");
 	String phone = request.getParameter("phone");
@@ -27,7 +27,7 @@
 	List<String> errorMsgs = new ArrayList<String>();
 	int result = 0;
 	
-	if (userid == null || userid.trim().length() == 0) {
+	if (user_id == null || user_id.trim().length() == 0) {
 		errorMsgs.add("ID를 반드시 입력해주세요.");
 	}
 	
@@ -42,10 +42,10 @@
 			conn = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
 			stmt = conn.prepareStatement(
 					"UPDATE users " +
-					"SET  userid=?, name=?, email=?, phone=? " +
+					"SET  user_id=?, name=?, email=?, phone=? " +
 					"WHERE id=?"
 					);
-			stmt.setString(1,  userid);
+			stmt.setString(1,  user_id);
 			stmt.setString(2,  name);
 			stmt.setString(3,  email);
 			stmt.setString(4,  phone);
@@ -157,6 +157,7 @@
 	 	<% } else if (result == 1) { %>
 	 		<div class="alert alert-success">
 	 			<b><%= name %></b>님 정보가 수정되었습니다.
+	 			<a href = "main.jsp">홈</a>
 	 		</div>
 		 	
 	 	<% } %>

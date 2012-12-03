@@ -14,7 +14,7 @@
 	request.setCharacterEncoding("utf-8");
 	String user_id = request.getParameter("user_id");
 	String pw = request.getParameter("pw");
-//	String pw_confirm = request.getParameter("pw_confirm");
+	String pw_confirm = request.getParameter("pw_confirm");
 	String name = request.getParameter("name");
 	String email = request.getParameter("email");
 
@@ -38,9 +38,9 @@
 		errorMsgs.add("비밀번호는 6자 이상 입력해주세요.");
 	} 
 	
-//	if (!pwd.equals(pwd_confirm)) {
-//		errorMsgs.add("비밀번호가 일치하지 않습니다.");
-//	}
+	if (!pw.equals(pw_confirm)) {
+		errorMsgs.add("비밀번호가 일치하지 않습니다.");
+	}
 	
 	if (name == null || name.trim().length() == 0) {
 		errorMsgs.add("이름을 반드시 입력해주세요.");
@@ -83,7 +83,7 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>회원목록</title>
+	<title>일반회원목록</title>
 	<link href="css/base.css" rel="stylesheet">
 	<script src="js/jquery-1.8.2.min.js"></script>
 </head>

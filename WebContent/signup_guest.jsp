@@ -96,16 +96,18 @@
 			  	}
 			  	%>
 			  
-			  <div class="control-group">
-					ID
-					<div class="controls">
-						<input type="text" name="user_id" value="<%=user_id%>">
-						<input type = "button" value = "중복조회" >
-					</div>
-				</div>	
+			  
+			  <% if (id <= 0) { %>
+					<%-- 신규 가입일 때만 아이디,비밀번호 입력창을 나타냄 --%>
+			  	
+			  	<div class="control-group">
+						ID
+						<div class="controls">
+							<input type="text" name="user_id" value="<%=user_id%>">
+							<input type = "button" value = "중복조회" >
+						</div>
+					</div>	
 				
-				<% if (id <= 0) { %>
-					<%-- 신규 가입일 때만 비밀번호 입력창을 나타냄 --%>
 					<div class="control-group">
 						Password
 						<div class="controls">
@@ -113,14 +115,13 @@
 						</div>
 					</div>
 	
-<%-- 
-				<div class="control-group">
-					Password 확인
-					<div class="controls">
-						<input type="password" name="pw_confirm">
+					<div class="control-group">
+						Password 확인
+						<div class="controls">
+							<input type="password" name="pw_confirm">
+						</div>
 					</div>
-				</div>
---%>	
+	
 				<% } %>
 				
 				<div class="control-group">
