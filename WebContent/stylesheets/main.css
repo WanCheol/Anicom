@@ -20,7 +20,7 @@ input,button,textarea,select,optgroup,option{font-family:inherit;font-size:inher
 input,button,textarea,select{font-size:100%;}
 
 /*a:hover,a:active{color:#eee; }*/
-a:link, a:visited{color:#eee; text-decoration:none;}
+a:link, a:visited{color:#000; text-decoration:none;}
 
 
 
@@ -33,6 +33,8 @@ a:link, a:visited{color:#eee; text-decoration:none;}
 #header_right{width:170px;height: 100px;line-height: 50px;float:left;}
 #line{width:960px; height:1px;background-color:#888;float:left;}
 #content{width:100%; height:100%; padding:0;}
+
+#content #sign{margin:0 auto; color:#000; text-align:center;}
 
 #content #navabar_add {width:960px;height:50px;}
 

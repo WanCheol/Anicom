@@ -73,6 +73,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>일반회원 Sign up</title>
+	<link rel="stylesheet" type="text/css" href="./stylesheets/main.css">
 	<script src="js/jquery-1.8.2.min.js"></script>
 </head>
 
