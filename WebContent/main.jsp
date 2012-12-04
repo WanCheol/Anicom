@@ -22,10 +22,13 @@
 				</div>
 			</div>
 			<div id="header_right">
-				
-					<a href="login.jsp">로그인</a>
-					<a href="signup.jsp">회원가입</a>
-				
+					<% if (session.getAttribute("id") == null) { %>
+						  <a href="login.jsp">로그인</a>
+					<a href="#">회원가입</a>
+					<% } else { %>
+				  안녕하세요. <b><%=session.getAttribute("id") %></b>님<br>
+				  <a href="user_information.jsp">mypage  </a>
+ 					 <a href="logout.jsp">로그아웃  </a>  <% } %>
 			</div>
 			
 		</div>
