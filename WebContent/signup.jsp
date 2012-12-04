@@ -23,20 +23,20 @@
 				</div>
 			</div>
 			<div id="header_right">
-				<a href="login.jsp">로그인</a>
-				<a href="signup.jsp">회원가입</a>
+				<a href="login.jsp" class="btn">로그인</a>
+				<a href="signup.jsp" class="btn">회원가입</a>
 			</div>	
 		</div>
 	<div id="line"></div>
 	<div id="content">
 		<div id="sign">
-			<a href = "signup_guest.jsp">일반회원</a>
-			<a href = "signup_hospital.jsp">병원회원</a>
+			<a href = "signup_guest.jsp" class="btn">일반회원</a>
+			<a href = "signup_hospital.jsp" class="btn">병원회원</a>
 		</div>
 	</div>
 	
 	<div id="line"></div>
-	<div id="footer">footer</div>
+	<div id="footer">2012, Copyright © Anicom. All rights reserved.</div>
 
 </div>
 </body>

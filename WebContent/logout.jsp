@@ -7,11 +7,12 @@ session.invalidate();
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" href="./stylesheets/main.css">
 </head>
 <body>
   로그아웃 되었습니다.
-  <p>
-  <a href="main.jsp">페이지로 돌아가기</a>
+ <br/>
+  <a href="main.jsp" class = "btn">페이지로 돌아가기</a>
 </body>
 </html>
 

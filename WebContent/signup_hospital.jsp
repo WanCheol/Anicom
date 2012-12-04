@@ -74,12 +74,12 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>병원회원 Sign up</title>
-		<link rel="stylesheet" type="text/css" href="./stylesheets/main.css">
+		<link rel="stylesheet" type="text/css" href="./stylesheets/login,signup.css">
 		<script src="js/jquery-1.8.2.min.js"></script>
 	</head>
 	
 	<body>
-	 <div class="container">
+	 <div id="container">
 	 <%
  		if (errorMsg != null && errorMsg.length() > 0 ) {
 		// SQL 에러의 경우 에러 메시지 출력
@@ -105,7 +105,6 @@
 						ID
 						<div class="controls">
 							<input type="text" name="hospital_id" value="<%=hospital_id%>">
-							<input type = "button" value = "중복조회" >
 						</div>
 					</div>	
 				

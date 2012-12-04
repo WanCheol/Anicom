@@ -32,9 +32,9 @@ try {
 
 		if(pw.equals(password)) { 
 			if(guest.length() < 6){
-				session.setAttribute("guest", "일반회원");
+				session.setAttribute("guest", guest);
 			}else
-				session.setAttribute("guest", "병원회원"); 
+				session.setAttribute("guest", guest); 
 		session.setAttribute("id", id); 
 		session.setAttribute("pw", pw);
 		response.sendRedirect("login_Result.jsp"); 
@@ -57,8 +57,11 @@ try {
 <head>
 <meta charset="UTF-8">
 <title>Logincheck</title>
+<link rel="stylesheet" type="text/css" href="stylesheets/main.css">
 </head>
 <body>
+<br/>
+<a onclick = "history.back();" class = "btn">뒤로 돌아가기</a>
 
 </body>
 </html>

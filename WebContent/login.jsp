@@ -6,8 +6,10 @@
 <head>
 <meta charset="UTF-8">
 <title>Login</title>
+<link rel="stylesheet" type="text/css" href="./stylesheets/login,signup.css">
 </head>
 <body>
+<div id = "container">
 <img src="images/4.jpg" alt="anicom로고">
 
  <form action = "login_check.jsp"class="form-horizontal" method="post">
@@ -34,6 +36,6 @@
 	<input type = "submit" value = "로그인"/>
 	<!-- <input type = "submit" value = "회원가입"/> -->
  </form>
- 
+ </div>
 </body>
 </html>

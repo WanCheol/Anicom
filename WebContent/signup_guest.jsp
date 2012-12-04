@@ -73,66 +73,66 @@
 <head>
 	<meta charset="UTF-8">
 	<title>일반회원 Sign up</title>
-	<link rel="stylesheet" type="text/css" href="./stylesheets/main.css">
+	<link rel="stylesheet" type="text/css" href="./stylesheets/login,signup.css">
 	<script src="js/jquery-1.8.2.min.js"></script>
 </head>
 
 <body>
- <div class="container">
-	 <%
+	<div id="container">
+		<%
  		if (errorMsg != null && errorMsg.length() > 0 ) {
 		// SQL 에러의 경우 에러 메시지 출력
 		out.print("<div class='alert'>" + errorMsg + "</div>");
- }
- %>	
-    <div>
-		  <img src="images/4.jpg" alt="anicom로고">
+ 		}
+ 		%>
+		<div>
+			<img src="images/4.jpg" alt="anicom로고">
 
-		   <form class="form-horizontal" action="<%=actionUrl%>" method="post">
-		   
-			<fieldset>
-			<%
+			<form class="form-horizontal" action="<%=actionUrl%>" method="post">
+
+				<fieldset>
+					<%
 			  	if (id > 0) {
 			  		out.println("<input type='hidden' name='id' value='"+id+"'>");
 			  	}
 			  	%>
-			  
-			  
-			  <% if (id <= 0) { %>
+
+
+					<% if (id <= 0) { %>
 					<%-- 신규 가입일 때만 아이디,비밀번호 입력창을 나타냄 --%>
-			  	
-			  	<div class="control-group">
+
+					<div class="control-group">
 						ID
 						<div class="controls">
 							<input type="text" name="user_id" value="<%=user_id%>">
-							<input type = "button" value = "중복조회" >
 						</div>
-					</div>	
-				
+					</div>
+
 					<div class="control-group">
 						Password
 						<div class="controls">
 							<input type="password" name="pw">
 						</div>
 					</div>
-	
+
 					<div class="control-group">
 						Password 확인
 						<div class="controls">
 							<input type="password" name="pw_confirm">
 						</div>
 					</div>
-	
-				<% } %>
-				
-				<div class="control-group">
-					Name
-					<div class="controls">
-						<input type="text" placeholder="홍길동" name="name" value="<%=name%>">
-					</div>
-				</div>
 
-<%--		
+					<% } %>
+
+					<div class="control-group">
+						Name
+						<div class="controls">
+							<input type="text" placeholder="홍길동" name="name"
+								value="<%=name%>">
+						</div>
+					</div>
+
+					<%--		
 				<div class="control-group">
 					Phone
 					<div class="controls">
@@ -140,43 +140,43 @@
 					</div>
 				</div>
 --%>
-				
-				<div class="control-group">
-					Phone
-					<div class="controls">
-						<select name = "frontnumber" > 
-								<option value = "010">010</option>
-								<option value = "011">011</option>
-								<option value = "016">016</option>
-								<option value = "017">017</option>
-								<option value = "018">018</option>
-								<option value = "019">019</option> 
-						</select> -
-							<input type = "text" name = "phonenumber1" size = "2" /> -
-							<input type = "text" name = "phonenumber2" size = "2" /> <br/>
-					</div>
-				</div>
-				
-				
-				
-				<div class="control-group">
-					E-mail
-					<div class="controls">
-						<input type="email" placeholder="hong@abc.com" name="email" value="<%=email%>">
-					</div>
-				</div>
-			
-				<div class="form-actions">
-					<% if (id <= 0) { %>
-						<input type="submit" class="btn btn-primary" value="회원가입">
-					<% } else { %>
-						<input type="submit" class="btn btn-primary" value="수정">
-					<% } %>
-				</div>
 
-			</fieldset>
-		  </form>
-    </div>
-  </div>
+					<div class="control-group">
+						Phone
+						<div class="controls">
+							<select name="frontnumber">
+								<option value="010">010</option>
+								<option value="011">011</option>
+								<option value="016">016</option>
+								<option value="017">017</option>
+								<option value="018">018</option>
+								<option value="019">019</option>
+							</select> - <input type="text" name="phonenumber1" size="2" /> - <input
+								type="text" name="phonenumber2" size="2" /> <br />
+						</div>
+					</div>
+
+
+
+					<div class="control-group">
+						E-mail
+						<div class="controls">
+							<input type="email" placeholder="hong@abc.com" name="email"
+								value="<%=email%>">
+						</div>
+					</div>
+
+					<div class="form-actions">
+						<% if (id <= 0) { %>
+						<input type="submit" class="btn btn-primary" value="회원가입">
+						<% } else { %>
+						<input type="submit" class="btn btn-primary" value="수정">
+						<% } %>
+					</div>
+
+				</fieldset>
+			</form>
+		</div>
+	</div>
 </body>
 </html>
