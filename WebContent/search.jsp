@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" import="java.sql.*"%>
-
 <%	
 if(session.getAttribute("id")==null){
 	response.sendRedirect("login.jsp"); 
@@ -16,6 +15,7 @@ if(session.getAttribute("id")==null){
 	String errorMsg = null;
 	String add=request.getParameter("address");
 
+
 	try {
 	    Class.forName("com.mysql.jdbc.Driver");
 		conn = DriverManager.getConnection(dbUrl, dbUser, dbPassword);		
@@ -26,7 +26,7 @@ if(session.getAttribute("id")==null){
 		stmt.close();
 		
 		stmt = conn.createStatement();
- 		rs = stmt.executeQuery("SELECT * FROM hospitals WHERE address like '%"+add+"%' ");		
+ 		rs = stmt.executeQuery("SELECT * FROM hospitals WHERE address like '%"+add+"%' ");
  		%>
 <!DOCTYPE html>
 <html lang="ko">
@@ -39,20 +39,25 @@ if(session.getAttribute("id")==null){
 
 	<div id="wrap">
 		<div id="header">
-			<div id="header_left"><a href ="#"><img src="./images/4.jpg" alt="anicom로고"></a></div>
+			<div id="header_left"><a href ="main.jsp"><img src="./images/4.jpg" alt="anicom로고"></a></div>
 			<div id="navbar">
 				<div id="navbar_top"></div>
 				<div id="navbar_bottom">
 				<ul>
-					<li><a href="#">검색하기</a></li>
+					<li><a href="search.jsp">검색하기</a></li>
 					<li><a href="#">커뮤니티</a></li>
 					<li><a href="#">예약가이드</a></li>
 				</ul>
 				</div>
 			</div>
 			<div id="header_right">		
-					<a href="#">로그인</a>
-					<a href="#">회원가입</a>			
+				<%	if(session.getAttribute("id")==null){%>
+					<a href="login.jsp">로그인</a>
+					<a href="signup.jsp">회원가입</a>
+				<%}else{%>
+					<a href="logout.jsp">로그아웃</a>
+					<a href="signup_guest.jsp">mypage</a>
+				<%} %>	
 			</div>	
 		</div>
 		<div id="line"></div>
@@ -63,51 +68,36 @@ if(session.getAttribute("id")==null){
 					<h1>검색</h1><br/><br/>
 					지역 또는 병원명 검색 :<br/><br/> <input type = "text" name = "address" size="10">		
 					<input type = "submit" value = " 검색 "/> 
+		
 				</form>
 				</div>
 				<div id = "searchresult">
+				
 					<table border ="1">
 						<tr>
-							<th>병원명</th><th>주소</th><th>평점</th>
+							<th>병원명</th><th>주소</th>
 						</tr>
 						<%while(rs.next()){ %>
 						<tr>
-							<td><a href="search.jsp" class = "hos_name"> <%= rs.getString("name") %></a> </td>
-							<td><%=rs.getString("address") %> </td>
-							<td><%=Integer.parseInt(rs.getString("grade")) %></td>							
-							
+							<td><a href="search2.jsp?id=<%=rs.getString("id")%>" target="iframe" class = "hos_name"> <%= rs.getString("name") %></a> </td>
+							<td><%=rs.getString("address") %> </td>											
 						</tr>
-						<%} 
+						<%}
 						rs.close();
 						stmt.close();
 						stmt = conn.createStatement();
 				 		rs = stmt.executeQuery("SELECT * FROM hospitals WHERE name like '%"+add+"%' ");
 				 		while(rs.next()){ %>
 						<tr>
-							<td><a href="search.jsp" class = "hos_name"> <%= rs.getString("name") %></a> </td>
-							<td><%=rs.getString("address") %> </td>
-							<td><%=Integer.parseInt(rs.getString("grade")) %></td>							
-							
+							<td><a href="search2.jsp?id=<%=rs.getString("id")%>" target="iframe" class = "hos_name"> <%= rs.getString("name") %></a> </td>
+							<td><%=rs.getString("address") %> </td>		
 						</tr>
-						<%} 
-						%>
+						<%}%>
 					</table>
 				</div>
 			</div>
 			<div id="hospitalinfo">
-				<div id="hospitalinfo_top">
-					<div id ="hospital_name" >병원이름</div>
-					<div id = "button">
-						<input type ="submit" value = " 예약 "/>
-						<input type ="submit" value = " 관심병원 등록 "/>
-					</div>
-				</div>
-				<div id="introduce">
-					병원소개, 지도api
-				</div>
-				<div id="comment">
-					평점 댓글 db
-				</div>
+			<iframe scrolling="no" name="iframe" width="600" height="700"></iframe>
 			</div>
 		</div>
 		<div id="line"></div>
