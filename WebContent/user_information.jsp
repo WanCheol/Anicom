@@ -80,7 +80,7 @@ if(guest.length() >= 6  ){
 <body>
 	<div id="wrap">
 		<div id="header">
-			<div id="header_left"><a href ="#"><img src="./images/4.jpg" alt="anicom로고"></a></div>
+			<div id="header_left"><a href ="main.jsp"><img src="./images/4.jpg" alt="anicom로고"></a></div>
 			<div id="navbar">
 				<div id="navbar_top"></div>
 				<div id="navbar_bottom">
@@ -116,9 +116,9 @@ if(guest.length() >= 6  ){
  	<div id="content"> 
 			<div id="navbar_add">
 				<ul>
-					<li><a href="user_information">내 정보</a></li>
-					<li><a href="#">관심병원</a></li>
-					<li><a href="#">예약확인</a></li>
+					<li><a href="user_information.jsp">내 정보</a></li>
+					<li><a href="user_favorites.jsp">관심병원</a></li>
+					<li><a href="user_book.jsp">예약확인</a></li>
 					<li><a href="user_reports.jsp">진료소견서</a></li>
 				</ul>
 			</div>

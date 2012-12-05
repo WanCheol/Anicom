@@ -83,7 +83,7 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>병원회원목록</title>
+	<title>병원가입</title>
 	<link rel="stylesheet" type="text/css" href="./stylesheets/main.css">
 	<script src="js/jquery-1.8.2.min.js"></script>
 </head>

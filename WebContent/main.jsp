@@ -87,7 +87,7 @@
 					} else {
 				%>
 
-				<b><%=session.getAttribute("id")%></b>님 환영합니다
+				<b><%=session.getAttribute("id")%></b>님 환영합니다</br>
 			
 
 				<a href="user_information.jsp" class="btn btn-mini">MyPage</a> 

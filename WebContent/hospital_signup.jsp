@@ -73,7 +73,7 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>병원회원 Sign up</title>
+		<title>병원 Sign up</title>
 		<link rel="stylesheet" type="text/css" href="./stylesheets/login,signup.css">
 		<script src="js/jquery-1.8.2.min.js"></script>
 	</head>

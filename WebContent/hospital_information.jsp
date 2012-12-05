@@ -79,7 +79,7 @@ if(session.getAttribute("id")==null){
 <body>
 	<div id="wrap">
 		<div id="header">
-			<div id="header_left"><a href ="#"><img src="./images/4.jpg" alt="anicom로고"></a></div>
+			<div id="header_left"><a href ="main.jsp"><img src="./images/4.jpg" alt="anicom로고"></a></div>
 			<div id="navbar">
 				<div id="navbar_top"></div>
 				<div id="navbar_bottom">
@@ -100,7 +100,7 @@ if(session.getAttribute("id")==null){
 					} else {
 				%>
 
-				<b><%=session.getAttribute("id")%></b>님 환영합니다
+				<b><%=session.getAttribute("id")%></b>님 환영합니다</br>
 			
 				<a href="hospital_information.jsp" class="btn btn-mini">MyPage</a> 
 				<a href="logout.jsp" class="btn btn-mini">로그아웃</a>
@@ -115,8 +115,8 @@ if(session.getAttribute("id")==null){
  	<div id="content"> 
 			<div id="navbar_add">
 				<ul>
-					<li><a href="#">병원 정보</a></li>
-					<li><a href="#">진료관리</a></li>
+					<li><a href="hospital_information.jsp">병원 정보</a></li>
+					<li><a href="hospital_reports.jsp">진료관리</a></li>
 				</ul>
 			</div>
 			<br/>
