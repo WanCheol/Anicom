@@ -85,7 +85,7 @@ if(guest.length() >= 6  ){
 				<div id="navbar_top"></div>
 				<div id="navbar_bottom">
 				<ul>
-					<li><a href="#">검색하기</a></li>
+					<li><a href="search.jsp">검색하기</a></li>
 					<li><a href="#">커뮤니티</a></li>
 					<li><a href="#">예약가이드</a></li>
 				</ul>
@@ -116,10 +116,10 @@ if(guest.length() >= 6  ){
  	<div id="content"> 
 			<div id="navbar_add">
 				<ul>
-					<li><a href="#">내 정보</a></li>
+					<li><a href="user_information">내 정보</a></li>
 					<li><a href="#">관심병원</a></li>
 					<li><a href="#">예약확인</a></li>
-					<li><a href="#">진료소견서</a></li>
+					<li><a href="user_reports.jsp">진료소견서</a></li>
 				</ul>
 			</div>
 			<br/>

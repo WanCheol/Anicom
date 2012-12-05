@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
@@ -16,17 +16,30 @@
 				<div id="navbar_top"></div>
 				<div id="navbar_bottom">
 				<ul>
-					<li><a href="#">검색하기</a></li>
+					<li><a href="search.jsp">검색하기</a></li>
 					<li><a href="#">커뮤니티</a></li>
 					<li><a href="#">예약가이드</a></li>
 				</ul>
 				</div>
 			</div>
 			<div id="header_right">
-				
-					<a href="#">로그인</a>
-					<a href="#">회원가입</a>
-				
+				<%
+					if(session.getAttribute("id")==null) {
+				%>
+				<a href="login.jsp" class="btn">로그인</a>
+				<a href="signup.jsp" class="btn">회원가입</a>
+				<%
+					} else {
+				%>
+
+				<b><%=session.getAttribute("id")%></b>님 환영합니다
+			
+
+				<a href="user_information.jsp" class="btn btn-mini">MyPage</a> 
+				<a href="logout.jsp" class="btn btn-mini">로그아웃</a>
+				<%
+					}
+				%>
 			</div>
 			
 		</div>
@@ -36,10 +49,10 @@
 
 			<div id="navbar_add">
 				<ul>
-					<li><a href="#">내 정보</a></li>
+					<li><a href="user_information.jsp">내 정보</a></li>
 					<li><a href="#">관심병원</a></li>
 					<li><a href="#">예약확인</a></li>
-					<li><a href="#">진료소견서</a></li>
+					<li><a href="user_reports.jsp">진료소견서</a></li>
 				</ul>
 			</div>
 
