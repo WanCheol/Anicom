@@ -2,6 +2,13 @@
     pageEncoding="UTF-8" import="java.sql.*" import="java.util.*" 
     %>
 <%
+if(session.getAttribute("id")==null){
+	response.sendRedirect("login.jsp"); 	
+}else{
+	
+	String errorMsg = null;
+	String actionUrl;
+	
 	// DB 접속을 위한 준비
 	Connection conn = null;
 	PreparedStatement stmt = null;
@@ -10,67 +17,60 @@
 	String dbUrl = "jdbc:mysql://localhost:3306/ani_test";
 	String dbUser = "id001";
 	String dbPassword = "pwd001";
-	
+	String s_id = (String) session.getAttribute("id"); 
 	request.setCharacterEncoding("utf-8");
 
+	 // 사용자 정보를 위한 변수 초기화
+	 String hospital_id = "";
+	 String name = "";
+	 String pw = "";
+	 String address = "";
+	 String phone = "";
+
 	// Request로 ID가 있는지 확인
-	int id = 0;
-	try {
-		id = Integer.parseInt(request.getParameter("id"));
-	} catch (Exception e) {}
-	String hospital_id = request.getParameter("hospital_id");
-	String name = request.getParameter("name");
-	String address = request.getParameter("address");
-	String phone = request.getParameter("phone");
+ 	  int id = 0;
+	  try {
+	    id = Integer.parseInt(request.getParameter("id"));
+	  } catch (Exception e) {}
 
+	   
+	    try {
+	        Class.forName("com.mysql.jdbc.Driver");
 
-	List<String> errorMsgs = new ArrayList<String>();
-	int result = 0;
-	
-	if (hospital_id == null || hospital_id.trim().length() == 0) {
-		errorMsgs.add("ID를 반드시 입력해주세요.");
-	}
-	
-	if (name == null || name.trim().length() == 0) {
-		errorMsgs.add("이름을 반드시 입력해주세요.");
-	}
-	
-	
+	        // DB 접속
+	      conn = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
 
-	if (errorMsgs.size() == 0) {
-		try {
-			conn = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
-			stmt = conn.prepareStatement(
-					"UPDATE hopitals " +
-					"SET  hospital_id=?, name=?, address=?, phone=? " +
-					"WHERE id=?"
-					);
-			stmt.setString(1,  hospital_id);
-			stmt.setString(2,  name);
-			stmt.setString(3,  address);
-			stmt.setString(4,  phone);
-
-			
-			result = stmt.executeUpdate();
-			if (result != 1) {
-				errorMsgs.add("변경에 실패하였습니다.");
-			}
-		} catch (SQLException e) {
-			errorMsgs.add("SQL 에러: " + e.getMessage());
-		} finally {
-			// 무슨 일이 있어도 리소스를 제대로 종료
-			if (rs != null) try{rs.close();} catch(SQLException e) {}
-			if (stmt != null) try{stmt.close();} catch(SQLException e) {}
-			if (conn != null) try{conn.close();} catch(SQLException e) {}
-		}
-	}
+	      // 질의 준비
+	      stmt = conn.prepareStatement("SELECT * FROM hospitals WHERE hospital_id = ?");
+	      stmt.setString(1, s_id);
+	      
+	      // 수행
+	      rs = stmt.executeQuery();
+	      
+	      if (rs.next()) {
+	        hospital_id = rs.getString("hospital_id");
+	        name = rs.getString("name");
+	        pw = rs.getString("pw");
+	        address = rs.getString("address");
+	        phone = rs.getString("phone");
+	        id = rs.getInt("id");
+	      }
+	    }catch (SQLException e) {
+	      errorMsg = "SQL 에러: " + e.getMessage();
+	    } finally {
+	      // 무슨 일이 있어도 리소스를 제대로 종료
+	      if (rs != null) try{rs.close();} catch(SQLException e) {}
+	      if (stmt != null) try{stmt.close();} catch(SQLException e) {}
+	      if (conn != null) try{conn.close();} catch(SQLException e) {}
+	    }
+	  
 %>  
 
 <!DOCTYPE html>
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>회원목록</title>
+	<title>병원 mypage</title>
 
 	<link rel="stylesheet" type="text/css" href="./stylesheets/main.css">
 	<script src="js/jquery-1.8.2.min.js"></script>
@@ -91,76 +91,65 @@
 				</div>
 			</div>
 			<div id="header_right">
-				
-					<a href="#">로그인</a>
-					<a href="#">회원가입</a>
-				
+								<%
+					if(session.getAttribute("id")==null) {
+				%>
+				<a href="login.jsp" class="btn">로그인</a>
+				<a href="signup.jsp" class="btn">회원가입</a>
+				<%
+					} else {
+				%>
+
+				<b><%=session.getAttribute("id")%></b>님 환영합니다
+			
+				<a href="user_information.jsp" class="btn btn-mini">MyPage</a> 
+				<a href="logout.jsp" class="btn btn-mini">로그아웃</a>
+				<%
+					}
+				%>
 			</div>
 			
 		</div>
 		<div id="line"></div>
 		
-		<div id="content">
-
+ 	<div id="content"> 
 			<div id="navbar_add">
 				<ul>
 					<li><a href="#">병원 정보</a></li>
 					<li><a href="#">진료관리</a></li>
 				</ul>
 			</div>
-
 			<br/>
 			
-	<%-- 
-			<form id="infoform" action = "" method = "post">
-					아이디 : <input type = "text" name = "id" size = "20" value = "hospital"/> <br/>
-					비밀번호 : <input type = "password" name = "password" size = "20" value = " hello"/> <br/>
-					비밀번호 재입력: <input type = "password" name = "password check" size = "20" value = " hello"/> <br/>
-					병원이름: <input type = "text" name = "name" size = "10" value = "우리들의원"/> <br/>
-					휴대폰: <select name = "phone number" /> 
-					<option value = "010">010</option>
-					<option value = "011">011</option>
-					<option value = "016">016</option>
-					<option value = "017">017</option>
-					<option value = "018">018</option>
-					<option value = "019">019</option> 
-					</select> -
-					<input type = "text" name = "phone" size = "4" value = " 1234"/> -
-					<input type = "text" name = "phone" size = "4" value = " 1234"/> <br/>
-					주소 : <input type = "text" name = "address" size = "100" value = "경기도 용인시 처인구 500-10" /><br/>
-					<input type = "submit" value = " 수정 "/>
-				</form>
-			<br/>
+			<div class="control-group">
+				ID : <%=hospital_id %>
+			</div>
 			
---%>
+			<div class="control-group">
+				병원이름 : <%=name%>
+			</div>
+			
+			<div class="control-group">
+				Phone : <%=phone %>
+			</div>
+		
+			<div class="control-group">
+				주소 : <%=address%>
+			</div>
 
-		</div>
+			<div class="form-actions">
+				<a href="hospital_signup.jsp?id=<%=id %>" class="btn btn-mini">수정</a>
+			</div>
+
+	</div>
+	
 		<div id="line"></div>
 		<div id="footer">footer</div>
 	</div>
+
 	
-		 	<div class="container">
- 		<% if (errorMsgs.size() > 0) { %>
- 			<div class="alert alert-error">
- 				<h3>Errors:</h3>
- 				<ul>
- 					<% for(String msg: errorMsgs) { %>
- 						<li><%=msg %></li>
- 					<% } %>
- 				</ul>
- 			</div>
-		 	<div class="form-action">
-		 		<a onclick="history.back();" class="btn">뒤로 돌아가기</a>
-		 	</div>
-	 	<% } else if (result == 1) { %>
-	 		<div class="alert alert-success">
-	 			<b><%= name %></b>님 정보가 수정되었습니다.
-	 			<a href = "main.jsp">홈</a>
-	 		</div>
-		 	
-	 	<% } %>
- 	</div>
-	
+
 </body>
 
 </html>
+<%}%>

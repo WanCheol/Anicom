@@ -18,16 +18,16 @@
 	try {
 		id = Integer.parseInt(request.getParameter("id"));
 	} catch (Exception e) {}
-	String user_id = request.getParameter("user_id");
+	String hospital_id = request.getParameter("hospital_id");
 	String name = request.getParameter("name");
-	String email = request.getParameter("email");
+	String address = request.getParameter("address");
 	String phone = request.getParameter("phone");
 
 
 	List<String> errorMsgs = new ArrayList<String>();
 	int result = 0;
 	
-	if (user_id == null || user_id.trim().length() == 0) {
+	if (hospital_id == null || hospital_id.trim().length() == 0) {
 		errorMsgs.add("ID를 반드시 입력해주세요.");
 	}
 	
@@ -41,15 +41,14 @@
 		try {
 			conn = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
 			stmt = conn.prepareStatement(
-					"UPDATE users " +
-					"SET  user_id=?, name=?, email=?, phone=? " +
+					"UPDATE hopitals " +
+					"SET  hospital_id=?, name=?, address=?, phone=? " +
 					"WHERE id=?"
 					);
-			stmt.setString(1,  user_id);
+			stmt.setString(1,  hospital_id);
 			stmt.setString(2,  name);
-			stmt.setString(3,  email);
+			stmt.setString(3,  address);
 			stmt.setString(4,  phone);
-			stmt.setInt(5, id);
 
 			
 			result = stmt.executeUpdate();
@@ -101,48 +100,25 @@
 		</div>
 		<div id="line"></div>
 		
- 	<div id="content"> 
+		<div id="content">
 
 			<div id="navbar_add">
 				<ul>
-					<li><a href="#">내 정보</a></li>
-					<li><a href="#">관심병원</a></li>
-					<li><a href="#">예약확인</a></li>
-					<li><a href="#">진료소견서</a></li>
+					<li><a href="#">병원 정보</a></li>
+					<li><a href="#">진료관리</a></li>
 				</ul>
 			</div>
 
 			<br/>
 			
-<%-- 
-			<form id="infoform" action = "" method = "post">
-					아이디 : <input type = "text" name = "id" size = "20" value = " hello"/> <br/>
-					비밀번호 : <input type = "password" name = "password" size = "20" value = " hello"/> <br/>
-					비밀번호 재입력: <input type = "password" name = "password check" size = "20" value = " hello"/> <br/>
-					이름: <input type = "text" name = "name" size = "10" value = "홍길동"/> <br/>
-					휴대폰:<select name = "frontnumber" > 
-								<option value = "010">010</option>
-								<option value = "011">011</option>
-								<option value = "016">016</option>
-								<option value = "017">017</option>
-								<option value = "018">018</option>
-								<option value = "019">019</option> 
-						</select> -
-					<input type = "text" name = "phone" size = "4" value = " 1234"/> -
-					<input type = "text" name = "phone" size = "4" value = " 1234"/> <br/>
-					<input type = "submit" value = " 수정 "/>	
-				</form>
-				
-			<br/>
---%>
+	
 
 		</div>
 		<div id="line"></div>
 		<div id="footer">footer</div>
 	</div>
-
 	
-	 	<div class="container">
+		 	<div class="container">
  		<% if (errorMsgs.size() > 0) { %>
  			<div class="alert alert-error">
  				<h3>Errors:</h3>

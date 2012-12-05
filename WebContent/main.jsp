@@ -89,7 +89,7 @@
 
 				<b><%=session.getAttribute("id")%></b>님 환영합니다
 			
-				<a href="signup_guest.jsp" class="btn btn-mini">MyPage</a> 
+				<a href="user_information.jsp" class="btn btn-mini">MyPage</a> 
 				<a href="logout.jsp" class="btn btn-mini">로그아웃</a>
 				<%
 					}
