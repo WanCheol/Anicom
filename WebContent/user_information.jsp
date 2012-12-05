@@ -123,31 +123,41 @@ if(guest.length() >= 6  ){
 				</ul>
 			</div>
 			<br/>
-			
-			<div class="control-group">
-				ID : <%=user_id %>
-			</div>
-			
-			<div class="control-group">
-				Name : <%=name%>
-			</div>
-			
-			<div class="control-group">
-				Phone : <%=phone %>
-			</div>
-		
-			<div class="control-group">
-				E-mail : <%=email%>
+			<div id="content_userinformaion">
+				<div class="control-group_userinformaion">
+					<b>ID :</b>
+
+					<%=user_id%>
+
+				</div>
+				<br />
+				<div class="control-group_userinformaion">
+					<b>Name :</b>
+					<%=name%>
+
+				</div>
+				<br />
+				<div class="control-group_userinformaion">
+					<b>Phone :</b>
+
+					<%=phone%>
+
+				</div>
+				<br />
+				<div class="control-group_userinformaion">
+					<b>E-mail :</b>
+					<%=email%>
+
+				</div>
+				<br />
+				<div class="form-actions_userinformaion">
+					<a href="user_signup.jsp?id=<%=id%>" class="btn btn-mini">수정</a>
+				</div>
+
 			</div>
 
-			<div class="form-actions">
-				<a href="user_signup.jsp?id=<%=id %>" class="btn btn-mini">수정</a> 
-			</div>
-
-	</div>
-	
-		<div id="line"></div>
-		<div id="footer">footer</div>
+			<div id="line"></div>
+		<div id="footer">2012, Copyright © Anicom. All rights reserved.</div>
 	</div>
 
 	

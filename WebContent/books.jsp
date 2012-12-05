@@ -22,20 +22,46 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>예약하기</title>
 <script src="calendar.js"></script>
-<link rel="stylesheet" type="text/css" href="main.css">
+<link rel="stylesheet" type="text/css" href="stylesheets/main.css">
 </head>
 <body>
- <%=hospital_id %>
+<div id="hospital_name_book"><%=hospital_id %></div><br/><br/>
 <form action="books2.jsp" method="post">
 <input type='hidden' name='hospital_id' value="<%=hospital_id%>"/>
 <input type='hidden' name='user_id' value="<%=user_id%>">
-날짜 선택 : <input type="text" name="rdate" size="12" onClick=Calendar_D(this);><br/>
-시간 선택 : <input type="text" name="time"><br/>
-증상 입력 : <textarea name="descript"></textarea><br/>
-동물 종류 : <input type="text" name="patient"><br/>
-<input type="submit" name="check" value="입력"> 
+		<div id="book_form">
+			<div class="control-group">
+				날짜 선택 :
+				<div class="controls">
+					<input type="text" name="rdate" size="12" onClick=Calendar_D(this);><br />
+				</div>
+			</div>
+			<div class="control-group">
+				시간 선택 :
+				<div class="controls">
+					<input type="text" name="time"><br />
+				</div>
+			</div>
+			<div class="control-group">
+				증상 입력 :
+				<div class="controls">
+					<textarea name="descript"></textarea>
+					<br />
+				</div>
+			</div>
+			<div class="control-group">
+				동물 종류 :
+				<div class="controls">
+					<input type="text" name="patient"><br />
+				</div>
+			</div>
+			<div class = "control-group">
+				<input type="submit" name="check" value="입력"> 
+			</div>
+		</div>
+		
 </form>
 </body>
 </html>
