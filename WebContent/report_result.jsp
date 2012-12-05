@@ -1,7 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" import="java.sql.*" import="java.util.*"%>
  <%
-
+	if(session.getAttribute("id")==null){
+			out.print("로그인하세요");
+			
+	}else{
     String errorMsg;
 	String actionUrl;
 	Connection conn = null;
@@ -16,10 +19,12 @@
 	String patient="";
 	String hospital_id="";
 	//String name="";
+	String comment="";
+	String descript="";
 	String phone="";
 	String address="";
+	String date="";
 	int hos_id;
-	
 	
 	int id = 0;
 	try {
@@ -31,19 +36,24 @@
 		try {
 		    Class.forName("com.mysql.jdbc.Driver");
 		    conn = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
-			stmt = conn.prepareStatement("SELECT * FROM books WHERE id=?");
-			stmt.setInt(1, id);
+			stmt = conn.prepareStatement("SELECT * FROM reports where user_id like '%"+session.getAttribute("id")+"%'");
+			//stmt.setInt(1, id);
 			
 	 		rs = stmt.executeQuery();
 	 		rs.next();
 			user_id=rs.getString("user_id");
-			
-	 		stmt = conn.prepareStatement("SELECT * FROM hospitals WHERE id=?");
+			patient=rs.getString("patient");
+			comment=rs.getString("comment");
+			descript=rs.getString("descript");
+			date=rs.getString("date");
+			//name=rs.getString("name");
+			rs.close();
+			stmt.close();
+			stmt = conn.prepareStatement("SELECT * FROM hospitals WHERE id=?");
 			stmt.setInt(1, id);
 			
 	 		rs = stmt.executeQuery();
 			rs.next();
-			//name=rs.getString("name");
 			phone=rs.getString("phone");
 			address=rs.getString("address");
 			hos_id=rs.getInt("id");
@@ -77,31 +87,25 @@
 	%>
 		<div id="content">
 			<div class="row_1">
-				<div class="title">이름 :<%=user_id %><input type='hidden' name='user_id' value='<%=user_id %>'/></div>
-				<div class="title">동물종류</div><input type="text" name="patient">
+				<div class="title">이름 :<%=user_id %></div><input type='hidden' name='user_id' value='<%=user_id %>'/>
+				<div class="title">동물종류 :<%=patient %></div><input type="hidden" name="patient" value="<%=patient%>"/><br>
 			</div>
 			<div class="row_2">
-				<div class="title">진료내용</div><textarea cols="35" rows="10" name="comment"></textarea>
+				<div class="title">진료내용</div><textarea cols="35" rows="10" name="comment"><%=comment %></textarea>
 			</div>
 			<div class="row_2">
-				<div class="title">향후치료의견</div><textarea cols="35" rows="10" name="descript"></textarea>
+				<div class="title">향후치료의견</div><textarea cols="35" rows="10" name="descript"><%=descript %></textarea>
 			</div>
 			<div id="r_footer">
-				발행일  : <br/>
+				발행일  : <%=date %><br/>
 				병원이름 : <%=hospital_id %> &nbsp; 전화번호 : <%=phone %><br/>
 				주소 : <%=address %>
 				<input type="hidden" name="hospital_id" value="<%=hospital_id%>"/>
-				<input type="hidden" name="phone" value="<%=phone %>"/>
-				<input type="hidden" name="address" value="<%=address %>"/>
+				<input type="hidden" name="phone" value="<%=phone%>"/>
+				<input type="hidden" name="address" value="<%=address%>"/>
 			</div>
 		</div>
-		<div id="btn">
-		<% if (id> 0) { %>
-					<div id="subm"><br/><input type="submit" value="등록하기"></div>
-					<% } else { %>
-						실패
-					<% } %>
-		</div>
+					<% }%>
 	</form>
 	</div>
 </body>

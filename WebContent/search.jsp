@@ -62,8 +62,9 @@ if(session.getAttribute("id")==null){
 					<a href="login.jsp" class="btn">로그인</a>
 					<a href="signup.jsp" class="btn">회원가입</a>
 				<%}else{%>
+				<b><%=session.getAttribute("id")%></b>님 환영합니다
+				<a href="user_information.jsp"  class="btn btn-mini">mypage</a>
 					<a href="logout.jsp"  class="btn btn-mini">로그아웃</a>
-					<a href="signup_guest.jsp"  class="btn btn-mini">mypage</a>
 				<%} %>	
 			</div>	
 		</div>
