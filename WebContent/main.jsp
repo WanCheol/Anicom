@@ -101,8 +101,20 @@
 		</div>
 		<div id="line"></div>
 		<div id="content">
-			<div id="fast_search">빠른검색</div>
-			<div id="main_content">페이지소개</div>
+			<div id="fast_search"></div>
+			<div id="main_content">
+				<img width = "220" height = "220" src = "./images/dog1.jpg" alt = "개1">&nbsp&nbsp&nbsp&nbsp&nbsp
+				<img width = "220" height = "220" src = "./images/dog2.jpg" alt = "개2">&nbsp&nbsp&nbsp&nbsp&nbsp
+				<img width = "220" height = "220" src = "./images/dog3.jpg" alt = "개3"><br/><br/>
+			
+				<img width = "220" height = "220" src = "./images/cat1.jpg" alt = "고양이1">&nbsp&nbsp&nbsp&nbsp&nbsp
+				<img width = "220" height = "220" src = "./images/cat2.jpg" alt = "고양이2">&nbsp&nbsp&nbsp&nbsp&nbsp
+				<img width = "220" height = "220" src = "./images/lion.jpg" alt = "사자"><br/><br/>
+				
+				<img width = "220" height = "220" src = "./images/giraffe.jpg" alt = "기린">&nbsp&nbsp&nbsp&nbsp&nbsp
+				<img width = "220" height = "220" src = "./images/snake.jpg" alt = "뱀">&nbsp&nbsp&nbsp&nbsp&nbsp
+				<img width = "220" height = "220" src = "./images/crocodile.jpg" alt = "뱀"><br/><br/>
+			</div>
 		</div>
 		<div id="line"></div>
 		<div id="footer">

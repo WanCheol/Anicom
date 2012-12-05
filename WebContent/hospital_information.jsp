@@ -79,7 +79,7 @@ if(session.getAttribute("id")==null){
 <body>
 	<div id="wrap">
 		<div id="header">
-			<div id="header_left"><a href ="#"><img src="./images/4.jpg" alt="anicom로고"></a></div>
+			<div id="header_left"><a href ="main.jsp"><img src="./images/4.jpg" alt="anicom로고"></a></div>
 			<div id="navbar">
 				<div id="navbar_top"></div>
 				<div id="navbar_bottom">
@@ -120,31 +120,36 @@ if(session.getAttribute("id")==null){
 				</ul>
 			</div>
 			<br/>
-			
-			<div class="control-group">
-				ID : <%=hospital_id %>
+
+			<div class="control-group_hospitalinformaion">
+				<b>ID :</b>
+				<%=hospital_id%>
 			</div>
-			
-			<div class="control-group">
-				병원이름 : <%=name%>
+			<br />
+			<div class="control-group_hospitalinformaion">
+				<b>병원이름 :</b>
+				<%=name%>
+
 			</div>
-			
-			<div class="control-group">
-				Phone : <%=phone %>
+			<br />
+			<div class="control-group_hospitalinformaion">
+				<b>Phone :</b>
+				<%=phone%>
 			</div>
-		
-			<div class="control-group">
-				주소 : <%=address%>
+			<br />
+			<div class="control-group_hospitalinformaion">
+				<b>주소 :</b>
+				<%=address%>
+			</div>
+			<br />
+			<div class="form-actions_hospitalinformation">
+				<a href="hospital_signup.jsp?id=<%=id%>" class="btn btn-mini">수정</a>
 			</div>
 
-			<div class="form-actions">
-				<a href="hospital_signup.jsp?id=<%=id %>" class="btn btn-mini">수정</a>
-			</div>
+		</div>
 
-	</div>
-	
-		<div id="line"></div>
-		<div id="footer">footer</div>
+			<div id="line"></div>
+		<div id="footer">2012, Copyright © Anicom. All rights reserved.</div>
 	</div>
 
 	

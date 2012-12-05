@@ -80,12 +80,12 @@ if(guest.length() >= 6  ){
 <body>
 	<div id="wrap">
 		<div id="header">
-			<div id="header_left"><a href ="#"><img src="./images/4.jpg" alt="anicom로고"></a></div>
+			<div id="header_left"><a href ="main.jsp"><img src="./images/4.jpg" alt="anicom로고"></a></div>
 			<div id="navbar">
 				<div id="navbar_top"></div>
 				<div id="navbar_bottom">
 				<ul>
-					<li><a href="#">검색하기</a></li>
+					<li><a href="search.jsp">검색하기</a></li>
 					<li><a href="#">커뮤니티</a></li>
 					<li><a href="#">예약가이드</a></li>
 				</ul>
@@ -123,31 +123,41 @@ if(guest.length() >= 6  ){
 				</ul>
 			</div>
 			<br/>
-			
-			<div class="control-group">
-				ID : <%=user_id %>
-			</div>
-			
-			<div class="control-group">
-				Name : <%=name%>
-			</div>
-			
-			<div class="control-group">
-				Phone : <%=phone %>
-			</div>
-		
-			<div class="control-group">
-				E-mail : <%=email%>
+			<div id="content_userinformaion">
+				<div class="control-group_userinformaion">
+					<b>ID :</b>
+
+					<%=user_id%>
+
+				</div>
+				<br />
+				<div class="control-group_userinformaion">
+					<b>Name :</b>
+					<%=name%>
+
+				</div>
+				<br />
+				<div class="control-group_userinformaion">
+					<b>Phone :</b>
+
+					<%=phone%>
+
+				</div>
+				<br />
+				<div class="control-group_userinformaion">
+					<b>E-mail :</b>
+					<%=email%>
+
+				</div>
+				<br />
+				<div class="form-actions_userinformaion">
+					<a href="user_signup.jsp?id=<%=id%>" class="btn btn-mini">수정</a>
+				</div>
+
 			</div>
 
-			<div class="form-actions">
-				<a href="user_signup.jsp?id=<%=id %>" class="btn btn-mini">수정</a> 
-			</div>
-
-	</div>
-	
-		<div id="line"></div>
-		<div id="footer">footer</div>
+			<div id="line"></div>
+		<div id="footer">2012, Copyright © Anicom. All rights reserved.</div>
 	</div>
 
 	

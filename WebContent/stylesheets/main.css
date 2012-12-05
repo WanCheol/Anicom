@@ -34,6 +34,7 @@ a:link, a:visited{color:#000; text-decoration:none;}
 #line{width:960px; height:1px;background-color:#888;float:left;}
 #content{width:100%; height:100%; padding:0;}
 
+#content_content_userinformaion{width:900px;}
 #content #sign{margin:0 auto; color:#000; text-align:center;}
 
 #content #navabar_add {width:960px;height:50px;}
@@ -74,6 +75,7 @@ a:link, a:visited{color:#000; text-decoration:none;}
 #content #navbar_add ul li a:hover,a:active{background-color:#30BD19; color:#fff;}
 
 #searchbox {margin-left:50px;font-size:14px;}
+
 #infoform {border: 1px solid #ccc; padding: 0 100px;}
 
 
@@ -83,7 +85,13 @@ a:link, a:visited{color:#000; text-decoration:none;}
 
 #content #searchbox { height: 150px; padding: 10px;}
 
-.control-group{margin-left:140px;}
+.control-group_userinformaion{margin-left:350px;font-size:15px;}
+
+.control-group_hospitalinformaion{margin-left:350px;font-size:15px;}
+
+.form-actions_userinformaion{margin-left:400px;}
+
+.form-actions_hospitalinformation{margin-left:400px;}
 
 #hospitalinfo_top{padding:10px;width: 600px;height: 70px; float:left;}
 
