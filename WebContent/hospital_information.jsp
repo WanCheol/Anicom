@@ -84,7 +84,7 @@ if(session.getAttribute("id")==null){
 				<div id="navbar_top"></div>
 				<div id="navbar_bottom">
 				<ul>
-					<li><a href="#">검색하기</a></li>
+					<li><a href="search.jsp">검색하기</a></li>
 					<li><a href="#">커뮤니티</a></li>
 					<li><a href="#">예약가이드</a></li>
 				</ul>
@@ -102,7 +102,7 @@ if(session.getAttribute("id")==null){
 
 				<b><%=session.getAttribute("id")%></b>님 환영합니다
 			
-				<a href="user_information.jsp" class="btn btn-mini">MyPage</a> 
+				<a href="hospital_information.jsp" class="btn btn-mini">MyPage</a> 
 				<a href="logout.jsp" class="btn btn-mini">로그아웃</a>
 				<%
 					}
