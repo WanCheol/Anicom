@@ -12,7 +12,7 @@
 	String name = "";
 	String phone = "";
 	String address = "";
-	String user_id = (String) session.getAttribute("id");
+	//String user_id = (String) session.getAttribute("id");
 	int id = 0;
 	try {
 		id = Integer.parseInt(request.getParameter("id"));
@@ -164,7 +164,7 @@
 		<div id="button">
 			<form action="books.jsp" method="post">	
 				<input type='hidden' name='hospital_id' value='<%=name%>'>
-				<input type='hidden' name='user_id' value='<%=user_id%>'>
+				<%-- <input type='hidden' name='user_id' value='<%=user_id%>'> --%>
 				<input type="submit" value=" 예약 ">
 			</form>
 		</div>
