@@ -2,8 +2,9 @@
     pageEncoding="UTF-8" import="java.sql.*" import="java.util.*" 
     %>
 <%
-if(session.getAttribute("id")==null){
-	response.sendRedirect("login.jsp"); 	
+String guest = (String) session.getAttribute("guest");
+if(guest.length() >= 6  ){
+	response.sendRedirect("hospital_information.jsp"); 	
 }else{
 	
 	String errorMsg = null;
