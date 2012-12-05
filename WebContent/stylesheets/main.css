@@ -38,7 +38,7 @@ a:link, a:visited{color:#000; text-decoration:none;}
 
 #content #navabar_add {width:960px;height:50px;}
 
-#content #searchbox{width:260px;height:380px;float:left;padding:10px; }
+/* #content #searchbox{width:200px;height:380px;float:left; } */
 #main_content{width:660px;padding: 10px;}
 #footer{color:#888;width: 100%; text-align:center; padding: 20px; float:left; }
 
@@ -80,7 +80,7 @@ a:link, a:visited{color:#000; text-decoration:none;}
 
 #content #searchresult table{padding:1px;border:1px;overflow:auto;}
 
-#content #searchbox {display:block; height: 150px; padding: 30px;}
+#content #searchbox { height: 150px; padding: 10px;}
 
 
 #hospitalinfo_top{padding:10px;width: 600px;height: 70px; float:left;}

@@ -10,9 +10,11 @@ session.invalidate();
 <link rel="stylesheet" type="text/css" href="./stylesheets/main.css">
 </head>
 <body>
-  로그아웃 되었습니다.
- <br/>
-  <a href="main.jsp" class = "btn">페이지로 돌아가기</a>
+  <script type="text/javascript">
+	alert("로그아웃 되었습니다"); 
+	location.href="main.jsp";
+
+</script>
 </body>
 </html>
 

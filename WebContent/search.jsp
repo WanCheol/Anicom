@@ -2,32 +2,39 @@
     pageEncoding="UTF-8" import="java.sql.*"%>
 <%	
 if(session.getAttribute("id")==null){
-	response.sendRedirect("login.jsp"); 
-	
+	response.sendRedirect("login.jsp"); 	
 }else{
-	Connection conn = null;
-	Statement stmt = null;
-	ResultSet rs = null;
-	
-	String dbUrl = "jdbc:mysql://localhost:3306/ani_test";
-	String dbUser = "id001";
-	String dbPassword = "pwd001";
-	String errorMsg = null;
-	String add=request.getParameter("address");
-
-
-	try {
-	    Class.forName("com.mysql.jdbc.Driver");
-		conn = DriverManager.getConnection(dbUrl, dbUser, dbPassword);		
-		stmt = conn.createStatement();	
- 		rs = stmt.executeQuery("SELECT * FROM hospitals");
-		rs.next();
-		rs.close();
-		stmt.close();
+	String guest = (String) session.getAttribute("guest");
+	if(guest.length() >= 6){
+		%>
+<script type="text/javascript">
+	alert("접근 권한이 없습니다"); 
+	window.history.back();
+</script>
+		<%
+	}else{
+		Connection conn = null;
+		Statement stmt = null;
+		ResultSet rs = null;
 		
-		stmt = conn.createStatement();
- 		rs = stmt.executeQuery("SELECT * FROM hospitals WHERE address like '%"+add+"%' ");
- 		%>
+		String dbUrl = "jdbc:mysql://localhost:3306/ani_test";
+		String dbUser = "id001";
+		String dbPassword = "pwd001";
+		String errorMsg = null;
+		String add=request.getParameter("address");
+	
+		try {
+		    Class.forName("com.mysql.jdbc.Driver");
+			conn = DriverManager.getConnection(dbUrl, dbUser, dbPassword);		
+			stmt = conn.createStatement();	
+	 		rs = stmt.executeQuery("SELECT * FROM hospitals");
+			rs.next();
+			rs.close();
+			stmt.close();
+			
+			stmt = conn.createStatement();
+	 		rs = stmt.executeQuery("SELECT * FROM hospitals WHERE address like '%"+add+"%' ");
+	 		%>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -52,11 +59,11 @@ if(session.getAttribute("id")==null){
 			</div>
 			<div id="header_right">		
 				<%	if(session.getAttribute("id")==null){%>
-					<a href="login.jsp">로그인</a>
-					<a href="signup.jsp">회원가입</a>
+					<a href="login.jsp" class="btn">로그인</a>
+					<a href="signup.jsp" class="btn">회원가입</a>
 				<%}else{%>
-					<a href="logout.jsp">로그아웃</a>
-					<a href="signup_guest.jsp">mypage</a>
+					<a href="logout.jsp"  class="btn btn-mini">로그아웃</a>
+					<a href="signup_guest.jsp"  class="btn btn-mini">mypage</a>
 				<%} %>	
 			</div>	
 		</div>
@@ -65,13 +72,13 @@ if(session.getAttribute("id")==null){
 			<div id ="content_left">
 				<div id="searchbox">
 				<form action="search.jsp" method="post">
-					<h1>검색</h1><br/><br/>
-					지역 또는 병원명 검색 :<br/><br/> <input type = "text" name = "address" size="10">		
-					<input type = "submit" value = " 검색 "/> 
+					
+					지역 또는 병원명 검색 :<br/><br/> <input type = "text" name = "address" size="20"><br/><br/>	
+					<input type = "submit" class="btn" value = " 검색 "/> 
 		
 				</form>
 				</div>
-				<div id = "searchresult">
+				<div id = "searchresult" >
 				
 					<table border ="1">
 						<tr>
@@ -101,7 +108,7 @@ if(session.getAttribute("id")==null){
 			</div>
 		</div>
 		<div id="line"></div>
-		<div id="footer">footer</div>
+		<div id="footer">2012, Copyright © Anicom. All rights reserved.</div>
 	</div>
 		<%		
 	}catch (SQLException e) {
@@ -111,6 +118,7 @@ if(session.getAttribute("id")==null){
 		if (rs != null) try{rs.close();} catch(SQLException e) {}
 		if (stmt != null) try{stmt.close();} catch(SQLException e) {}
 		if (conn != null) try{conn.close();} catch(SQLException e) {}
+	}
 	}
 }
 %>
