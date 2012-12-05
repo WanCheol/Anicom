@@ -39,7 +39,8 @@ a:link, a:visited{color:#000; text-decoration:none;}
 #content #navabar_add {width:960px;height:50px;}
 
 /* #content #searchbox{width:200px;height:380px;float:left; } */
-#main_content{width:660px;padding: 10px;}
+#main_content{width:100%;padding: 10px;}
+
 #footer{color:#888;width: 100%; text-align:center; padding: 20px; float:left; }
 
 #content table{width:90%;margin:0 auto;}
@@ -82,10 +83,13 @@ a:link, a:visited{color:#000; text-decoration:none;}
 
 #content #searchbox { height: 150px; padding: 10px;}
 
+.control-group{margin-left:140px;}
 
 #hospitalinfo_top{padding:10px;width: 600px;height: 70px; float:left;}
 
 #hospitalinfo_top #hospital_name{padding:10px; font-size : 50px; width:250px; height:50px;margin-left:140px;float: left;}
+
+#hospital_name{padding:10px; font-size : 50px; width:250px; height:50px;margin-left:140px;float: left;}
 
 #hospitalinfo_top #button{padding:10px; width: 150px; height:50px; float: right;}
 
@@ -99,7 +103,11 @@ a:link, a:visited{color:#000; text-decoration:none;}
 
 #hospitalinfo #comment{padding:20px;width:100%;height: 300px;}
 
-#login_back{font-color:font-size:15px;margin:2px;}
+#login_back{font-color:;font-size:15px;margin:2px;}
+
+#hospital_name_book{font-size:40px;margin-left:140px;}
+
+#book_form{font-size:15px;}
 
 .btn {
   display: inline-block;
