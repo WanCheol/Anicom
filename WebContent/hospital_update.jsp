@@ -151,9 +151,15 @@
 		 		<a onclick="history.back();" class="btn">뒤로 돌아가기</a>
 		 	</div>
 	 	<% } else if (result == 1) { %>
+	 			<script type="text/javascript">
+					alert("<%= name %>님 정보가 수정되었습니다."); 
+					location.href="hospital_information.jsp";
+				</script>	
+	 		<%--
 	 		<div class="alert alert-success">
 	 			<a href = "hospital_information.jsp"><b><%= name %></b>님 정보가 수정되었습니다.</a>
 	 		</div>
+		 	--%>
 		 	
 	 	<% } %>
  	</div>

@@ -104,10 +104,17 @@
 		 		<a onclick="history.back();" class="btn">뒤로 돌아가기</a>
 		 	</div>
 	 	<% } else if (result == 1) { %>
+	 			<script type="text/javascript">
+					alert("<%= name %>님 등록해주셔서 감사합니다."); 
+					location.href="main.jsp";
+				</script>	
+				
+				<%-- 
 	 		<div class="alert alert-success">
 	 			<b><%= name %></b>님 등록해주셔서 감사합니다.
 	 			<a href = "main.jsp">홈</a>
 	 		</div>
+	 		--%>
 	 		
 	 	<%}%>
  	</div>
