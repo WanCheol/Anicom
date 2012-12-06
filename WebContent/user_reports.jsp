@@ -107,7 +107,7 @@ if(session.getAttribute("id")==null){
 							<a href="report_result.jsp?id=<%=rs.getString("id")%>" class="btn">진료확인서</a>
 						</td>
 					</tr>
-
+<%} %>
 				</tbody>
 			</table>
 			<br/>
@@ -118,7 +118,7 @@ if(session.getAttribute("id")==null){
 </body>
 </html>
 <%
-				}
+			
 	}catch (SQLException e) {
 	errorMsg = "SQL 에러: " + e.getMessage();
 	}finally {
