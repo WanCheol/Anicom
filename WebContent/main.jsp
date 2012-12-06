@@ -24,41 +24,58 @@
 	try {
 	    Class.forName("com.mysql.jdbc.Driver");
 
-	    // DB 접속
 		conn = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
-
- 		// 질의 준비
-		//stmt = conn.prepareStatement("SELECT * FROM users WHERE id = ?");
-		//stmt.setInt(1, id);
-		
-		// 수행
- 		//rs = stmt.executeQuery();
 		stmt = conn.createStatement();
 		
-		// users 테이블: user 수 페이지수 개산
  		rs = stmt.executeQuery("SELECT COUNT(*) FROM users");
 		rs.next();
 		
- 		// users 테이블 SELECT
 		stmt = conn.createStatement();
 		rs = stmt.executeQuery("SELECT * FROM users ORDER BY id LIMIT ");
 
 	}catch (SQLException e) {
 		errorMsg = "SQL 에러: " + e.getMessage();
 	} finally {
-		// 무슨 일이 있어도 리소스를 제대로 종료
 		if (rs != null) try{rs.close();} catch(SQLException e) {}
 		if (stmt != null) try{stmt.close();} catch(SQLException e) {}
 		if (conn != null) try{conn.close();} catch(SQLException e) {}
 	}
 
 %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE>
 <html>
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" type="text/css" href="./stylesheets/main.css">
 <title>Anicom에 오신것을 환영합니다</title>
+<link rel="stylesheet" href="./stylesheets/global.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
+	<script src="slides.min.jquery.js"></script>
+	<script>
+		$(function(){
+			// Set starting slide to 1
+			var startSlide = 1;
+			// Get slide number if it exists
+			if (window.location.hash) {
+				startSlide = window.location.hash.replace('#','');
+			}
+			// Initialize Slides
+			$('#slides').slides({
+				preload: true,
+				preloadImage: 'img/loading.gif',
+				generatePagination: true,
+				play: 5000,
+				pause: 2500,
+				hoverPause: true,
+				// Get the starting slide
+				start: startSlide,
+				animationComplete: function(current){
+					// Set the slide number as a hash
+					window.location.hash = '#' + current;
+				}
+			});
+		});
+	</script>
 </head>
 <body>
 	<div id="wrap">
@@ -103,17 +120,32 @@
 		<div id="content">
 			<div id="fast_search"></div>
 			<div id="main_content">
-				<img width = "220" height = "220" src = "./images/dog1.jpg" alt = "개1">&nbsp&nbsp&nbsp&nbsp&nbsp
-				<img width = "220" height = "220" src = "./images/dog2.jpg" alt = "개2">&nbsp&nbsp&nbsp&nbsp&nbsp
-				<img width = "220" height = "220" src = "./images/dog3.jpg" alt = "개3"><br/><br/>
+				<div id="example">
+			<div id="slides">
+				<div class="slides_container">
+					<div class="slide">
+						<h1>Anicom</h1>
+						<p>환영합니다. 이곳은 동물병원 통합 웹사이트 입니다. 빠르고 간편한 예약을 할 수 있습니다.</p>
 			
-				<img width = "220" height = "220" src = "./images/cat1.jpg" alt = "고양이1">&nbsp&nbsp&nbsp&nbsp&nbsp
-				<img width = "220" height = "220" src = "./images/cat2.jpg" alt = "고양이2">&nbsp&nbsp&nbsp&nbsp&nbsp
-				<img width = "220" height = "220" src = "./images/lion.jpg" alt = "사자"><br/><br/>
-				
-				<img width = "220" height = "220" src = "./images/giraffe.jpg" alt = "기린">&nbsp&nbsp&nbsp&nbsp&nbsp
-				<img width = "220" height = "220" src = "./images/snake.jpg" alt = "뱀">&nbsp&nbsp&nbsp&nbsp&nbsp
-				<img width = "220" height = "220" src = "./images/crocodile.jpg" alt = "뱀"><br/><br/>
+					</div>
+					<div class="slide">
+						
+						<p><img src="images/1.PNG" width="570" height="270" alt="Slide 2"></p>
+					
+					</div>
+					<div class="slide">
+						<h1>3번째 슬라이드</h1>
+						<p></p>
+						
+					</div>
+					<div class="slide">
+						<h1>4번째 슬라이드</h1>
+						<p></p>
+						
+					</div>
+				</div>
+			</div>
+		</div>
 			</div>
 		</div>
 		<div id="line"></div>
