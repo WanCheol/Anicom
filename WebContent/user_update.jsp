@@ -21,15 +21,17 @@
 	String user_id = request.getParameter("user_id");
 	String name = request.getParameter("name");
 	String email = request.getParameter("email");
-	String phone = request.getParameter("phone");
+	
+	//String phone = request.getParameter("phone");
+	String frontnumber = (request.getParameter("frontnumber"));
+	String phonenumber1 = (request.getParameter("phonenumber1"));
+	String phonenumber2 = (request.getParameter("phonenumber2"));
+	
+	String phone = frontnumber + phonenumber1 + phonenumber2;
 
 
 	List<String> errorMsgs = new ArrayList<String>();
 	int result = 0;
-	
-	if (user_id == null || user_id.trim().length() == 0) {
-		errorMsgs.add("ID를 반드시 입력해주세요.");
-	}
 	
 	if (name == null || name.trim().length() == 0) {
 		errorMsgs.add("이름을 반드시 입력해주세요.");
@@ -169,8 +171,7 @@
 		 	</div>
 	 	<% } else if (result == 1) { %>
 	 		<div class="alert alert-success">
-	 			<b><%= name %></b>님 정보가 수정되었습니다.
-	 			<a href = "main.jsp">홈</a>
+	 			<a href = "user_information.jsp"><b><%= name %></b>님 정보가 수정되었습니다.</a>
 	 		</div>
 		 	
 	 	<% } %>

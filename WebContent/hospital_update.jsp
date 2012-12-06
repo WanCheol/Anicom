@@ -21,15 +21,21 @@
 	String hospital_id = request.getParameter("hospital_id");
 	String name = request.getParameter("name");
 	String address = request.getParameter("address");
-	String phone = request.getParameter("phone");
+	
+	//String phone = request.getParameter("phone");
+	String frontnumber = (request.getParameter("frontnumber"));
+	String phonenumber1 = (request.getParameter("phonenumber1"));
+	String phonenumber2 = (request.getParameter("phonenumber2"));
+		
+	String phone = frontnumber + phonenumber1 + phonenumber2;
 
 
 	List<String> errorMsgs = new ArrayList<String>();
 	int result = 0;
 	
-	if (hospital_id == null || hospital_id.trim().length() == 0) {
+	/*if (hospital_id == null || hospital_id.trim().length() == 0) {
 		errorMsgs.add("ID를 반드시 입력해주세요.");
-	}
+	}*/
 	
 	if (name == null || name.trim().length() == 0) {
 		errorMsgs.add("이름을 반드시 입력해주세요.");
@@ -41,7 +47,7 @@
 		try {
 			conn = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
 			stmt = conn.prepareStatement(
-					"UPDATE hopitals " +
+					"UPDATE hospitals " +
 					"SET  hospital_id=?, name=?, address=?, phone=? " +
 					"WHERE id=?"
 					);
@@ -49,6 +55,7 @@
 			stmt.setString(2,  name);
 			stmt.setString(3,  address);
 			stmt.setString(4,  phone);
+			stmt.setInt(5, id);
 
 			
 			result = stmt.executeUpdate();
@@ -145,8 +152,7 @@
 		 	</div>
 	 	<% } else if (result == 1) { %>
 	 		<div class="alert alert-success">
-	 			<b><%= name %></b>님 정보가 수정되었습니다.
-	 			<a href = "main.jsp">홈</a>
+	 			<a href = "hospital_information.jsp"><b><%= name %></b>님 정보가 수정되었습니다.</a>
 	 		</div>
 		 	
 	 	<% } %>

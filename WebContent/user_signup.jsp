@@ -103,16 +103,15 @@
 			  	}
 			  	%>
 
-
-					<% if (id <= 0) { %>
-					<%-- 신규 가입일 때만 아이디,비밀번호 입력창을 나타냄 --%>
-
 					<div class="control-group">
 						ID
 						<div class="controls">
 							<input type="text" name="user_id" value="<%=user_id%>">
 						</div>
 					</div>
+
+					<% if (id <= 0) { %>
+					<%-- 신규 가입일 때만 아이디,비밀번호 입력창을 나타냄 --%>
 
 					<div class="control-group">
 						Password

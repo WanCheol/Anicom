@@ -22,7 +22,7 @@
 	String address = "";
 	String phone = "";
 	int grade = 0; 
-	String guest = "guest";
+	String guest = "hospital";
 	
 	
 	// Request로 ID가 있는지 확인
@@ -33,7 +33,7 @@
 
 	if (id > 0) {
 		// Request에 id가 있으면 update모드라 가정
-		actionUrl = "hospital_information.jsp";
+		actionUrl = "hospital_update.jsp";
 		try {
 		    Class.forName("com.mysql.jdbc.Driver");
 
@@ -97,16 +97,15 @@
 			  	}
 			  	%>
 			  
-			  
-			  <% if (id <= 0) { %>
-					<%-- 신규 가입일 때만 아이디,비밀번호 입력창을 나타냄 --%>
-			  	
-			  	<div class="control-group">
+			  <div class="control-group">
 						ID
 						<div class="controls">
 							<input type="text" name="hospital_id" value="<%=hospital_id%>">
 						</div>
 					</div>	
+			  
+			  <% if (id <= 0) { %>
+					<%-- 신규 가입일 때만 아이디,비밀번호 입력창을 나타냄 --%>
 				
 					<div class="control-group">
 						Password
