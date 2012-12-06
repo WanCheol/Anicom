@@ -20,6 +20,7 @@
 	String patient = request.getParameter("patient");
 	String user_id=request.getParameter("user_id");
 	String hospital_id=request.getParameter("hospital_id");
+	String hospital_name=request.getParameter("name");
 	
 	List<String> errorMsgs = new ArrayList<String>();
 	int result = 0;
@@ -83,7 +84,7 @@
 	 		<script type="text/javascript">
 		        alert("완료되었습니다.");
 		        self.close();
-		        parent.location.replace("search2.jsp"); 
+		        parent.location.replace("search.jsp"); 
      		</script>
 
 

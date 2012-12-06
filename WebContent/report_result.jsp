@@ -18,13 +18,13 @@
 	String user_id = "";
 	String patient="";
 	String hospital_id="";
-	//String name="";
+	String name="";
 	String comment="";
 	String descript="";
 	String phone="";
 	String address="";
 	String date="";
-	int hos_id;
+	//int hos_id;
 	
 	int id = 0;
 	try {
@@ -54,10 +54,24 @@
 			
 	 		rs = stmt.executeQuery();
 			rs.next();
-			phone=rs.getString("phone");
-			address=rs.getString("address");
-			hos_id=rs.getInt("id");
-			hospital_id=rs.getString("hospital_id");
+				user_id=rs.getString("user_id");
+				patient=rs.getString("patient");
+				comment=rs.getString("comment");
+				descript=rs.getString("descript");
+				date=rs.getString("date");
+			rs.close();
+			stmt.close();
+			stmt = conn.prepareStatement("SELECT * FROM hospitals WHERE hospital_id=?");
+			stmt.setString(1, hospital_id);
+			
+		 	rs = stmt.executeQuery();
+			if(rs.next()){
+				phone=rs.getString("phone");
+				address=rs.getString("address");
+				//hos_id=rs.getInt("id");
+				//hospital_id=rs.getString("hospital_id");
+				name=rs.getString("name");
+			}
 			} catch(SQLException e){
 				out.print("error");
 			} finally {
@@ -98,7 +112,7 @@
 			</div>
 			<div id="r_footer">
 				발행일  : <%=date %><br/>
-				병원이름 : <%=hospital_id %> &nbsp; 전화번호 : <%=phone %><br/>
+				병원이름 : <%=name %> &nbsp; 전화번호 : <%=phone %><br/>
 				주소 : <%=address %>
 				<input type="hidden" name="hospital_id" value="<%=hospital_id%>"/>
 				<input type="hidden" name="phone" value="<%=phone%>"/>

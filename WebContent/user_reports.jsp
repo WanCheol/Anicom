@@ -1,5 +1,36 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" import="java.sql.*"%>
+   <%	
+if(session.getAttribute("id")==null){
+	response.sendRedirect("login.jsp"); 	
+}else{
+	
+		Connection conn = null;
+		PreparedStatement stmt = null;
+		ResultSet rs = null;
+		request.setCharacterEncoding("utf-8");
+		
+		String s_id=(String)session.getAttribute("id");
+		String dbUrl = "jdbc:mysql://localhost:3306/ani_test";
+		String dbUser = "id001";
+		String dbPassword = "pwd001";
+		String errorMsg = null;
+		
+		
+	 	  int id = 0;
+		  try {
+		    id = Integer.parseInt(request.getParameter("id"));
+		  } catch (Exception e) {}
+		  
+		try {
+		    Class.forName("com.mysql.jdbc.Driver");
+			conn = DriverManager.getConnection(dbUrl, dbUser, dbPassword);		
+			
+			stmt = conn.prepareStatement("SELECT * FROM reports WHERE user_id = ? ");
+			stmt.setString(1, s_id);
+			rs = stmt.executeQuery();
+
+	 		%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -66,21 +97,14 @@
 					</tr>
 				</thead>
 				<tbody>
-					<tr>
-						<td><a href="report.jsp">우리들의원</a></td>
-						<td>2012-11-14</td>
-						<td>
-							<input type="button" value=" 평점주기 " onClick="window.open('comment.jsp','평점주기','width=250 height=200')" id="change">
 						
-						</td>
-					</tr>
-
+				<% while(rs.next()){ %>
 					<tr>
-						<td>우리들의원</td>
-						<td>2012-11-14</td>
+						<td><%=rs.getString("hospital_id")%></td>
+						<td><%=rs.getString("date") %></td>
 						<td>
-							<input type="button" value=" 평점주기 " id="change">
-							
+							<!-- <input type="button" value=" 소견서작성 " id="change">	 -->
+							<a href="report_result.jsp?id=<%=rs.getString("id")%>" class="btn">진료확인서</a>
 						</td>
 					</tr>
 
@@ -89,7 +113,20 @@
 			<br/>
 		</div>
 		<div id="line"></div>
-		<div id="footer">footer</div>
+		<div id="footer">2012, Copyright © Anicom. All rights reserved.</div>
 	</div>
 </body>
 </html>
+<%
+				}
+	}catch (SQLException e) {
+	errorMsg = "SQL 에러: " + e.getMessage();
+	}finally {
+	// 무슨 일이 있어도 리소스를 제대로 종료
+	if (rs != null) try{rs.close();} catch(SQLException e) {}
+	if (stmt != null) try{stmt.close();} catch(SQLException e) {}
+	if (conn != null) try{conn.close();} catch(SQLException e) {}
+	}
+
+}
+%>

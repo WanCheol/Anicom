@@ -9,7 +9,8 @@
 	String dbUser = "id001";
 	String dbPassword = "pwd001";
 	String user_id = (String) session.getAttribute("id");
-	String hospital_id=request.getParameter("hospital_id");
+	String hospital_id=request.getParameter("hospital_id"); //
+	String name = request.getParameter("hospital_name");
 	
 	request.setCharacterEncoding("utf-8");
 	int id = 0;
@@ -27,8 +28,9 @@
 <link rel="stylesheet" type="text/css" href="stylesheets/main.css">
 </head>
 <body>
-<div id="hospital_name_book"><%=hospital_id %></div><br/><br/>
+<div id="hospital_name_book"><%=name %></div><br/><br/>
 <form action="books2.jsp" method="post">
+<input type='hidden' name='name' value='<%=name %>'/>
 <input type='hidden' name='hospital_id' value="<%=hospital_id%>"/>
 <input type='hidden' name='user_id' value="<%=user_id%>">
 		<div id="book_form">

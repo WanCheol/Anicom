@@ -14,11 +14,11 @@
 
 	String user_id = "";
 	String patient="";
-	String hospital_id="";
-	//String name="";
+	String name="";
 	String phone="";
 	String address="";
-	int hos_id;
+	String s_id=(String)session.getAttribute("id");
+	String hospital_id="";
 	
 	
 	int id = 0;
@@ -38,16 +38,16 @@
 	 		rs.next();
 			user_id=rs.getString("user_id");
 			
-	 		stmt = conn.prepareStatement("SELECT * FROM hospitals WHERE id=?");
-			stmt.setInt(1, id);
+	 		stmt = conn.prepareStatement("SELECT * FROM hospitals WHERE hospital_id=?");
+			stmt.setString(1, s_id);
 			
 	 		rs = stmt.executeQuery();
 			rs.next();
 			//name=rs.getString("name");
 			phone=rs.getString("phone");
 			address=rs.getString("address");
-			hos_id=rs.getInt("id");
 			hospital_id=rs.getString("hospital_id");
+			name=rs.getString("name");
 			} catch(SQLException e){
 				out.print("error");
 			} finally {
@@ -88,7 +88,7 @@
 			</div>
 			<div id="r_footer">
 				발행일  : <br/>
-				병원이름 : <%=hospital_id %> &nbsp; 전화번호 : <%=phone %><br/>
+				병원이름 : <%=name %> &nbsp; 전화번호 : <%=phone %><br/>
 				주소 : <%=address %>
 				<input type="hidden" name="hospital_id" value="<%=hospital_id%>"/>
 				<input type="hidden" name="phone" value="<%=phone %>"/>
