@@ -36,8 +36,8 @@
 		try {
 		    Class.forName("com.mysql.jdbc.Driver");
 		    conn = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
-			stmt = conn.prepareStatement("SELECT * FROM reports where user_id like '%"+session.getAttribute("id")+"%'");
-			//stmt.setInt(1, id);
+			stmt = conn.prepareStatement("SELECT * FROM reports where id =?");
+			stmt.setInt(1, id);
 			
 	 		rs = stmt.executeQuery();
 	 		rs.next();
@@ -46,21 +46,11 @@
 			comment=rs.getString("comment");
 			descript=rs.getString("descript");
 			date=rs.getString("date");
+			hospital_id=rs.getString("hospital_id");
 			//name=rs.getString("name");
 			rs.close();
 			stmt.close();
-			stmt = conn.prepareStatement("SELECT * FROM hospitals WHERE id=?");
-			stmt.setInt(1, id);
 			
-	 		rs = stmt.executeQuery();
-			rs.next();
-				user_id=rs.getString("user_id");
-				patient=rs.getString("patient");
-				comment=rs.getString("comment");
-				descript=rs.getString("descript");
-				date=rs.getString("date");
-			rs.close();
-			stmt.close();
 			stmt = conn.prepareStatement("SELECT * FROM hospitals WHERE hospital_id=?");
 			stmt.setString(1, hospital_id);
 			
@@ -105,10 +95,10 @@
 				<div class="title">동물종류 :<%=patient %></div><input type="hidden" name="patient" value="<%=patient%>"/><br>
 			</div>
 			<div class="row_2">
-				<div class="title">진료내용</div><textarea cols="35" rows="10" name="comment"><%=comment %></textarea>
+				<div class="title">진료내용</div><textarea readonly="readonly" cols="35" rows="10" name="comment"><%=comment %></textarea>
 			</div>
 			<div class="row_2">
-				<div class="title">향후치료의견</div><textarea cols="35" rows="10" name="descript"><%=descript %></textarea>
+				<div class="title">향후치료의견</div><textarea readonly="readonly" cols="35" rows="10" name="descript"><%=descript %></textarea>
 			</div>
 			<div id="r_footer">
 				발행일  : <%=date %><br/>
@@ -119,6 +109,7 @@
 				<input type="hidden" name="address" value="<%=address%>"/>
 			</div>
 		</div>
+				<input type="reset" value="닫기" onclick="window.close('report_result')">
 					<% }%>
 	</form>
 	</div>

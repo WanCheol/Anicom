@@ -92,8 +92,8 @@ if(session.getAttribute("id")==null){
 				<thead>
 					<tr>
 						<th>병원이름</th>
-						<th>날짜</th>
-						<th>평점주기</th>
+						<th>발행일</th>
+						<th>진료소견서</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -104,7 +104,8 @@ if(session.getAttribute("id")==null){
 						<td><%=rs.getString("date") %></td>
 						<td>
 							<!-- <input type="button" value=" 소견서작성 " id="change">	 -->
-							<a href="report_result.jsp?id=<%=rs.getString("id")%>" class="btn">진료확인서</a>
+							<%-- <a href="report_result.jsp?id=<%=rs.getString("id")%>" class="btn" onClick="">진료확인서</a> --%>
+							<a class="btn" onclick="window.open('report_result.jsp?id=<%=rs.getString("id")%>','player','width=470,height=570')">진료확인서</a>
 						</td>
 					</tr>
 <%} %>
