@@ -85,6 +85,8 @@ a:link, a:visited{color:#000; text-decoration:none;}
 
 #content #searchbox { height: 150px; padding: 10px;}
 
+.control-group{margin-left:200px;}
+
 .control-group_userinformaion{margin-left:350px;font-size:15px;}
 
 .control-group_hospitalinformaion{margin-left:350px;font-size:15px;}
@@ -113,7 +115,7 @@ a:link, a:visited{color:#000; text-decoration:none;}
 
 #login_back{font-color:;font-size:15px;margin:2px;}
 
-#hospital_name_book{font-size:40px;margin-left:140px;}
+#hospital_name_book{font-size:40px;margin-left:200px;}
 
 #book_form{font-size:15px;}
 

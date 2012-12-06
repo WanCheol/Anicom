@@ -10,7 +10,7 @@
 </head>
 <body>
 <div id = "container">
-<img src="images/4.jpg" alt="anicom로고">
+<a href = "main.jsp"><img src="images/4.jpg" alt="anicom로고"></a>
 
  <form action = "login_check.jsp"class="form-horizontal" method="post">
   <table>
@@ -24,7 +24,7 @@
 			<tr>
 				<td>PW:</td>
 				<td>
-					<input type = "password" name = "password" size = "15"/> <br/>
+					<input type = "password" name = "password" size = "14"/> <br/>
 				</td>
 			</tr>
 <!-- String id = (String)session.getAttribute("id")-->

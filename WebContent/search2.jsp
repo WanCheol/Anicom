@@ -174,9 +174,9 @@
 	<div id="introduce">
 		환영합니다!
 		<ul>
-			<li>이름: <%=name%></li>
-			<li>전화번호: <%=phone%></li>
-			<li>주소: <%=address%></li>
+			<li><b>이름:</b> <%=name%></li>
+			<li><b>전화번호:</b> <%=phone%></li>
+			<li><b>주소:</b> <%=address%></li>
 		</ul>
 	</div>
 	<div id="comment">

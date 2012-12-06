@@ -1,5 +1,38 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" import="java.sql.*" import="java.util.*"%>
+       <%
+		Connection conn = null;
+		PreparedStatement stmt = null;
+		ResultSet rs = null;
+		request.setCharacterEncoding("utf-8");
+		
+		String s_id=(String)session.getAttribute("id");
+		String dbUrl = "jdbc:mysql://localhost:3306/ani_test";
+		String dbUser = "id001";
+		String dbPassword = "pwd001";
+		String errorMsg = null;
+		
+	
+ 	  int id = 0;
+	  try {
+	    id = Integer.parseInt(request.getParameter("id"));
+	  } catch (Exception e) {}
+
+		try {
+		  Class.forName("com.mysql.jdbc.Driver");
+			conn = DriverManager.getConnection(dbUrl, dbUser, dbPassword);		
+			
+			stmt = conn.prepareStatement("SELECT * FROM books WHERE user_id = ? ");
+			stmt.setString(1, s_id);
+			
+
+			rs = stmt.executeQuery();
+			
+  //    if (rs.next()) {
+	//        id = rs.getInt("id");
+	//      }
+
+	%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -10,7 +43,9 @@
 <body>
 <div id="wrap">
 		<div id="header">
-			<div id="header_left"><a href ="main.jsp"><img src="./images/4.jpg" alt="anicom로고"></a></div>
+			<div id="header_left">
+				<a href ="main.jsp"><img src="./images/4.jpg" alt="anicom로고"></a>
+			</div>
 			<div id="navbar">
 				<div id="navbar_top"></div>
 				<div id="navbar_bottom">
@@ -65,30 +100,37 @@
 					</tr>
 				</thead>
 				<tbody>
+				<% while(rs.next()){ %>
 					<tr>
-						<td>우리들의원</td>
-						<td>2012-01-27</td>
+						<td><%=rs.getString("hospital_id")%></td>
+						<td><%=rs.getString("date") %></td>
 						<td>
-							<input type="button" value=" 수정 " id="change">
-							<input type="button" value="  X  " id="cancel">
+							<a href="books.jsp?id=<%=rs.getInt("id")%>" class="btn btn-mini">수정</a>
+							<a href="books_delete.jsp?id=<%=rs.getInt("id")%>" class="btn btn-mini">X</a>
+
 						</td>
 					</tr>
-
-					<tr>
-						<td>우리들의원</td>
-						<td>2012-01-27</td>
-						<td>
-							<input type="button" value=" 수정 " id="change">
-							<input type="button" value="  X  " id="cancel">
-						</td>
-					</tr>
-
+				<% }%>
 				</tbody>
 			</table>
 			<br/>
 		</div>
 		<div id="line"></div>
-		<div id="footer">footer</div>
+		<div id="footer">
+			2012, Copyright © Anicom. All rights reserved.
+		</div>
 	</div>
 </body>
 </html>
+<%
+			
+	}catch (SQLException e) {
+	errorMsg = "SQL 에러: " + e.getMessage();
+	}finally {
+	// 무슨 일이 있어도 리소스를 제대로 종료
+	if (rs != null) try{rs.close();} catch(SQLException e) {}
+	if (stmt != null) try{stmt.close();} catch(SQLException e) {}
+	if (conn != null) try{conn.close();} catch(SQLException e) {}
+	}
+
+%>
