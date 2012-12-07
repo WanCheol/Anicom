@@ -1,16 +1,16 @@
 html{color:#000;
 	/*background:#fff*/; 
 	padding:20px 0;
-	font: 12px/18px "筌띾쵐占��⑥쥓逾�, "Malgun Gothic", "�대���, "Gulim", Verdana, Arial, Tahoma;
+	font: 15px/18px "맑은고딕", "Malgun Gothic", "굴림", "Gulim", Verdana, Arial, Tahoma;
 }
 body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,button,textarea,p,blockquote,th,td{margin:0;padding:0;}
-/*table{border-collapse:collapse;border-spacing:0;}*/
+table{border-collapse:collapse;}
 fieldset,img{border:0;}
 address,caption,cite,code,dfn,em,strong,th,var,optgroup{font-style:inherit;font-weight:inherit;}
 del,ins{text-decoration:none;}
 li{list-style:none;}
 caption,th{text-align:left;}
-h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}
+h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:bold;}
 q:before,q:after{content:'';}
 abbr,acronym{border:0;font-variant:normal;}
 sup{vertical-align:baseline;}
@@ -27,10 +27,10 @@ a:link, a:visited{color:#000; text-decoration:none;}
 #wrap{width:960px; margin:0 auto; }
 #header{width:960px; height:100px;}
 #header_left{width:300px; height:100px; float:left;}
-#navbar{width:450px;height: 100px;float:left;font-size:25px;}
+#navbar{width:450px;height: 100px;float:left;font-size:30px;}
 #navbar_top{width:420px; height:50px;}
-#navbar_bottom{width: 450px;height: 50px;font-size:25px;}
-#header_right{width:200px;height: 100px;line-height: 50px;float:left;font-size:14px;}
+#navbar_bottom{width: 450px;height: 50px;font-size:30px;}
+#header_right{width:200px;height: 100px;line-height: 50px;float:left;font-size:16px;}
 #line{width:960px; height:1px;background-color:#888;float:left;}
 #content{width:100%; height:100%; padding:0;}
 
@@ -41,13 +41,13 @@ a:link, a:visited{color:#000; text-decoration:none;}
 
 /* #content #searchbox{width:200px;height:380px;float:left; } */
 #main_content{width:100%;padding: 10px;}
-
+#books_grade{width:300px;float:left; padding:30 20 10 20;}
 #footer{color:#888;width: 100%; text-align:center; padding: 20px; float:left; }
 
 #content table{width:90%;margin:0 auto;}
-#content th{border-top:solid 5px;border-bottom:solid 5px;}
-#content table, th, td{border-style:none;padding:10px;text-align:center;}
-
+#content th{border-bottom:solid 2px;}
+#content table, th, td{border-style:none;border-bottom:solid 1px;padding:10px;text-align:center; color:#000;}
+	/* table.grade{border:solid 1px; } */
 #navbar ul {margin:0;padding:0;}
 #navbar ul li {float:left;padding:0;}
 
@@ -56,12 +56,12 @@ a:link, a:visited{color:#000; text-decoration:none;}
 	color:#888; 
 	text-align:center;
 	padding:10px; 
-	font: bold 12px Tahoma;
+	font: bold 15px Tahoma;
 }
 
 #navbar_add {width:300px; height:30px;margin:0 auto;}
 
-#navbar ul li a:hover,a:active{background-color:#30BD19; color:#fff;}
+#navbar ul li a:hover,a:active{text-decoration:none;background-color:#30BD19; color:#fff;}
 #content #navbar_add ul {margin:0;padding:0;}
 #content #navbar_add ul li {float:left;padding:0;}
 
@@ -72,9 +72,9 @@ a:link, a:visited{color:#000; text-decoration:none;}
 	padding:10px; 
 	font: bold 12px Tahoma;
 }
-#content #navbar_add ul li a:hover,a:active{background-color:#30BD19; color:#fff;}
+#content #navbar_add ul li a:hover,a:active{text-decoration:none; background-color:#30BD19; color:#fff;}
 
-#searchbox {margin-left:50px;font-size:14px;}
+#searchbox {margin-left:50px;font-size:15px;}
 
 #infoform {border: 1px solid #ccc; padding: 0 100px;}
 
@@ -84,7 +84,7 @@ a:link, a:visited{color:#000; text-decoration:none;}
 #content #searchresult table{padding:1px;border:1px;overflow:auto;}
 
 #content #searchbox { height: 150px; padding: 10px;}
-
+.long{margin-bottom:5px;}
 .control-group{margin-left:200px;}
 
 .control-group_userinformaion{margin-left:350px;font-size:15px;}
@@ -97,7 +97,7 @@ a:link, a:visited{color:#000; text-decoration:none;}
 
 #hospitalinfo_top{padding:10px;width: 600px;height: 70px; float:left;}
 
-#hospitalinfo_top #hospital_name{padding:10px; font-size : 50px; width:250px; height:50px;margin-left:140px;float: left;}
+#hospitalinfo_top #hospital_name{padding:10 10 0 10; font-size:30px; width:250px; height:50px;margin-left:140px;float: left;}
 
 #hospital_name{padding:10px; font-size : 50px; width:250px; height:50px;margin-left:140px;float: left;}
 
@@ -118,7 +118,7 @@ a:link, a:visited{color:#000; text-decoration:none;}
 #hospital_name_book{font-size:40px;margin-left:200px;}
 
 #book_form{font-size:15px;}
-
+#map_canvas{margin:0 auto;}
 .btn {
   display: inline-block;
   *display: inline;

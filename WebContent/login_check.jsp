@@ -6,7 +6,7 @@ Connection conn = null;
 Statement stmt = null;
 ResultSet rs = null;
 
-String dbUrl = "jdbc:mysql://localhost:3306/ani_test";
+String dbUrl = "jdbc:mysql://localhost:3306/ani_test?chracterEncoding=utf-8";
 String dbUser = "id001";
 String dbPassword = "pwd001";
 String errorMsg = null;

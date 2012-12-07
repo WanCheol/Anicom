@@ -17,23 +17,21 @@ if(session.getAttribute("id")==null){
 		Statement stmt = null;
 		ResultSet rs = null;
 		
-		String dbUrl = "jdbc:mysql://localhost:3306/ani_test";
+		String dbUrl = "jdbc:mysql://localhost:3306/ani_test?chracterEncoding=utf-8";
 		String dbUser = "id001";
 		String dbPassword = "pwd001";
 		String errorMsg = null;
-		String add=request.getParameter("address");
+		String addr = request.getParameter("address");
+		
+		if(addr != null ) {
+			addr = new String(addr.getBytes("8859_1"),"UTF-8");
+		}
 	
 		try {
 		    Class.forName("com.mysql.jdbc.Driver");
 			conn = DriverManager.getConnection(dbUrl, dbUser, dbPassword);		
-			stmt = conn.createStatement();	
-	 		rs = stmt.executeQuery("SELECT * FROM hospitals");
-			rs.next();
-			rs.close();
-			stmt.close();
-			
 			stmt = conn.createStatement();
-	 		rs = stmt.executeQuery("SELECT * FROM hospitals WHERE address like '%"+add+"%' ");
+	 		rs = stmt.executeQuery("SELECT * FROM hospitals WHERE address like '%"+addr+"%' ");
 	 		%>
 <!DOCTYPE html>
 <html lang="ko">
@@ -63,8 +61,8 @@ if(session.getAttribute("id")==null){
 					<a href="signup.jsp" class="btn">회원가입</a>
 				<%}else{%>
 				<b><%=session.getAttribute("id")%></b>님 환영합니다
-				<a href="user_information.jsp"  class="btn btn-mini">MyPage</a>
-					<a href="logout.jsp"  class="btn btn-mini">로그아웃</a>
+				<a href="user_information.jsp"  class="btn">MyPage</a>
+					<a href="logout.jsp"  class="btn">로그아웃</a>
 				<%} %>	
 			</div>	
 		</div>
@@ -74,7 +72,7 @@ if(session.getAttribute("id")==null){
 				<div id="searchbox">
 				<form action="search.jsp" method="post">
 					
-					지역 또는 병원명 검색 :<br/><br/> <input type = "text" name = "address" size="20"><br/><br/>	
+					<h1>지역 또는 병원명 검색 </h1><br/> <input type = "text" name = "address" size="20"><br/><br/>	
 					<input type = "submit" class="btn" value = " 검색 "/> 
 		
 				</form>
@@ -94,7 +92,7 @@ if(session.getAttribute("id")==null){
 						rs.close();
 						stmt.close();
 						stmt = conn.createStatement();
-				 		rs = stmt.executeQuery("SELECT * FROM hospitals WHERE name like '%"+add+"%' ");
+				 		rs = stmt.executeQuery("SELECT * FROM hospitals WHERE name like '%"+addr+"%' ");
 				 		while(rs.next()){ %>
 						<tr>
 							<td><a href="search2.jsp?id=<%=rs.getString("id")%>" target="iframe" class = "hos_name"> <%= rs.getString("name") %></a> </td>

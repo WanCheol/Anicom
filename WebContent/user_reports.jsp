@@ -11,7 +11,7 @@ if(session.getAttribute("id")==null){
 		request.setCharacterEncoding("utf-8");
 		
 		String s_id=(String)session.getAttribute("id");
-		String dbUrl = "jdbc:mysql://localhost:3306/ani_test";
+		String dbUrl = "jdbc:mysql://localhost:3306/ani_test?chracterEncoding=utf-8";
 		String dbUser = "id001";
 		String dbPassword = "pwd001";
 		String errorMsg = null;

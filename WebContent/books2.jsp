@@ -5,7 +5,7 @@
 	PreparedStatement stmt = null;
 	ResultSet rs = null;
 	
-	String dbUrl = "jdbc:mysql://localhost:3306/ani_test";
+	String dbUrl = "jdbc:mysql://localhost:3306/ani_test?chracterEncoding=utf-8";
 	String dbUser = "id001";
 	String dbPassword = "pwd001";
 	
@@ -28,9 +28,9 @@
 	if (rdate == null || rdate.trim().length() == 0) {
 		errorMsgs.add("날짜를 입력하세요");
 	}
-	if (time == null || time.trim().length() == 0) {
+	/* if (time == null || time.trim().length() == 0) {
 		errorMsgs.add("시간을 입력하세요");
-	}
+	} */
 	if (descript == null || descript.trim().length() == 0) {
 		errorMsgs.add("증상을 입력하세요");
 	}

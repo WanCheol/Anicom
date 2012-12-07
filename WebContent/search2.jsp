@@ -5,7 +5,7 @@
 	PreparedStatement stmt = null;
 	ResultSet rs = null;
 
-	String dbUrl = "jdbc:mysql://localhost:3306/ani_test";
+	String dbUrl = "jdbc:mysql://localhost:3306/ani_test?chracterEncoding=utf-8";
 	String dbUser = "id001";
 	String dbPassword = "pwd001";
 	String errorMsg = null;
@@ -13,22 +13,24 @@
 	String phone = "";
 	String address = "";
 	String hospital_id=""; //
-	//String user_id = (String) session.getAttribute("id");
+	
+	
 	int id = 0;
 	try {
 		id = Integer.parseInt(request.getParameter("id"));
 	} catch (Exception e) {
 	}
+	
 	if (id > 0) {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			conn = DriverManager.getConnection(dbUrl, dbUser,
-					dbPassword);
+			conn = DriverManager.getConnection(dbUrl, dbUser,dbPassword);
 			stmt = conn
 					.prepareStatement("SELECT * FROM hospitals WHERE id=?");
 			stmt.setInt(1, id);
 
 			rs = stmt.executeQuery();
+			
 			if (rs.next()) {
 				name = rs.getString("name");
 				phone = rs.getString("phone");
@@ -167,20 +169,17 @@
 				<input type='hidden' name='hospital_name' value='<%=name%>'>       <!--  -->
 				<input type='hidden' name='hospital_id' value='<%=hospital_id %>'> <!--  -->
 				<%-- <input type='hidden' name='user_id' value='<%=user_id%>'> --%>
-				<input type="submit" value=" 예약 ">
+				<input class="btn"type="submit" value=" 예약 ">
 			</form>
 		</div>
 	</div>
-	<div id="introduce">
-		환영합니다!
-		<ul>
-			<li><b>이름:</b> <%=name%></li>
-			<li><b>전화번호:</b> <%=phone%></li>
-			<li><b>주소:</b> <%=address%></li>
-		</ul>
-	</div>
-	<div id="comment">
+	<div id="introduce" >
+			<div class="long"><b>이름:</b> <%=name%></div>
+			<div class="long"><b>전화번호:</b> <%=phone%></div>
+			<div class="long"><b>주소:</b> <%=address%></div>
 		
+	</div>
+	<div id="comment">	
 	</div>
 	<div id="map_canvas" style="width: 500px; height: 500px"></div>
 </body>

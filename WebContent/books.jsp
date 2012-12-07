@@ -8,21 +8,23 @@
 	String errorMsg = null;
 	String actionUrl;
 	
-	String dbUrl = "jdbc:mysql://localhost:3306/ani_test";
+	String dbUrl = "jdbc:mysql://localhost:3306/ani_test?chracterEncoding=utf-8";
 	String dbUser = "id001";
 	String dbPassword = "pwd001";
 	
 	String user_id = (String) session.getAttribute("id");
 	String hospital_id=request.getParameter("hospital_id");
 	String name = request.getParameter("hospital_name");
-	
+	String[] times = {"9", "10", "11", "13", "14", "15", "16", "17", "18", "19", "18", "19", "20"};
+	String time="";
 	
 	String date = "";
 	String patient = "";
-	int time = 0;
 	String descript = "";
 
-	
+	if(name != null ) {
+		name = new String(name.getBytes("8859_1"),"UTF-8");
+	}
 	int id = 0;
 	try {
 		id = Integer.parseInt(request.getParameter("id"));
@@ -50,7 +52,7 @@
 			if (rs.next()) {
 				date = rs.getString("date");
 				patient = rs.getString("patient");
-				time = rs.getInt("time");
+				time = rs.getString("time");
 				descript = rs.getString("descript");
 				name = rs.getString("hospital_id");
 			}
@@ -91,7 +93,17 @@
 			<div class="control-group">
 				시간 선택 :
 				<div class="controls">
-					<input type="text" name="time" value = <%=time%>><br />
+					<select name="time">
+						<% 
+						for(String timeName: times) {
+							out.print("<option");
+							if (timeName.equals(time)) {
+								out.print(" selected");
+							}
+							out.println(">"+timeName+"</option>");	
+						}
+						%>
+					</select>시
 				</div>
 			</div>
 			<div class="control-group">
