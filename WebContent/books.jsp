@@ -80,6 +80,12 @@
 <body>
 <div id="hospital_name_book"><%=name %></div><br/><br/>
 <form action=<%=actionUrl %> method="post">
+<%
+if(id>0){
+	out.println("<input type = 'hidden' name = 'id' value = '"+id+"'>");
+}
+%>
+
 <input type='hidden' name='name' value='<%=name %>'/>
 <input type='hidden' name='hospital_id' value="<%=hospital_id%>"/>
 <input type='hidden' name='user_id' value="<%=user_id%>">
