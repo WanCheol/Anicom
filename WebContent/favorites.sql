@@ -9,6 +9,7 @@ CREATE TABLE favorites (
 	id int PRIMARY KEY AUTO_INCREMENT not null, 
 	user_id VARCHAR(20),
 	hospital_id VARCHAR(20)
+	unique(user_id,hospital_id)
 	
 );
 
