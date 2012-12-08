@@ -55,7 +55,10 @@
  			</div>
 	 	<% } else { %>
 	 		<div class="alert alert-success">
-	 			예약을 취소하였습니다.
+	 			<script type="text/javascript">
+					alert("예약을 취소하였습니다."); 
+					location.href="user_book.jsp";
+				</script>	
 	 		</div>
 	 	<%}%>
 	 	<div class="form-action">
