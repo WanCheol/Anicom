@@ -16,7 +16,6 @@ if(session.getAttribute("id")==null){
 		String dbPassword = "pwd001";
 		String errorMsg = null;
 		
-		
 	 	  int id = 0;
 		  try {
 		    id = Integer.parseInt(request.getParameter("id"));

@@ -1,2 +1,7 @@
-
-#container{overflow:auto; padding:0; margin-left: 300px;}
+.login{width:300px; height:300px;margin:0 auto;}
+#container{width:300px; height:500px;overflow:auto; padding:0; margin-left: 300px;}
+html{margin:0 auto;
+text-aling:center;
+padding:20px 0;
+}
+fieldset,img{border:0;}

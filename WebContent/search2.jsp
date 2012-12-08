@@ -86,7 +86,7 @@
 
 		var latlng = new google.maps.LatLng(37.5240220, 126.9265940);
 		var myOptions = {
-			zoom : 10,
+			zoom : 14,
 			center : latlng,
 			mapTypeId : google.maps.MapTypeId.ROADMAP
 		};

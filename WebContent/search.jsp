@@ -1,9 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" import="java.sql.*"%>
 <%	
-if(session.getAttribute("id")==null){
-	response.sendRedirect("login.jsp"); 	
-}else{
+if(session.getAttribute("id")==null){%>
+	<script type="text/javascript">
+	alert("접근 권한이 없습니다"); 
+	window.history.back();
+</script>
+<%}else{
 	String guest = (String) session.getAttribute("guest");
 	if(guest.length() >= 6){
 		%>
@@ -11,7 +14,7 @@ if(session.getAttribute("id")==null){
 	alert("접근 권한이 없습니다"); 
 	window.history.back();
 </script>
-		<%
+<%
 	}else{
 		Connection conn = null;
 		Statement stmt = null;
@@ -37,8 +40,22 @@ if(session.getAttribute("id")==null){
 <html lang="ko">
 <head>
 <meta charset="utf-8">
+<script src="js/jquery-1.8.3.min.js"></script>
 <link rel="stylesheet" type="text/css" href="stylesheets/main.css">
 <title>Anicom에 오신것을 환영합니다</title>
+
+<!-- <script>
+$(document).ready(function() {
+	
+	var test = $("#iframeSection").contents().find("#calendar");
+	
+	test.change(function() {
+		alert("test");
+	});
+});
+
+</script> -->
+
 </head>
 <body>
 
@@ -102,8 +119,10 @@ if(session.getAttribute("id")==null){
 					</table>
 				</div>
 			</div>
-			<div id="hospitalinfo">
-			<iframe scrolling="no" name="iframe" width="600" height="700"></iframe>
+			<div id="hospitalinfo"><img src="images/search.jpg" alt="search_result">
+			<iframe scrolling="no" id="iframeSection" name="iframe" width="600" height="700" frameborder="0">
+			
+			</iframe>
 			</div>
 		</div>
 		<div id="line"></div>

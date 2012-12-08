@@ -14,13 +14,13 @@
 	try {
 		id = Integer.parseInt(request.getParameter("id"));
 	} catch (Exception e) {}
-	String rdate = request.getParameter("rdate");
-	String time = request.getParameter("time");
-	String descript = request.getParameter("descript");
-	String patient = request.getParameter("patient");
-	String user_id=request.getParameter("user_id");
-	String hospital_id=request.getParameter("hospital_id");
-	String hospital_name=request.getParameter("name");
+		String rdate = request.getParameter("rdate");
+		String time = request.getParameter("time");
+		String descript = request.getParameter("descript");
+		String patient = request.getParameter("patient");
+		String user_id=request.getParameter("user_id");
+		String hospital_id=request.getParameter("hospital_id");
+		String hospital_name=request.getParameter("name");
 	
 	List<String> errorMsgs = new ArrayList<String>();
 	int result = 0;
@@ -28,9 +28,7 @@
 	if (rdate == null || rdate.trim().length() == 0) {
 		errorMsgs.add("날짜를 입력하세요");
 	}
-	/* if (time == null || time.trim().length() == 0) {
-		errorMsgs.add("시간을 입력하세요");
-	} */
+
 	if (descript == null || descript.trim().length() == 0) {
 		errorMsgs.add("증상을 입력하세요");
 	}
@@ -56,9 +54,14 @@
 				errorMsgs.add("등록에 실패하였습니다.");
 			}
 		} catch (SQLException e) {
-			errorMsgs.add("SQL 에러: " + e.getMessage());
+			//errorMsgs.add("SQL 에러: " + e.getMessage());
+			%>
+			<script type="text/javascript">
+	        alert("시간이 중복 되었습니다. 확인해주세요");
+			location.href(-1);    
+ 		</script>
+ 		<%
 		} finally {
-			// 무슨 일이 있어도 리소스를 제대로 종료
 			if (rs != null) try{rs.close();} catch(SQLException e) {}
 			if (stmt != null) try{stmt.close();} catch(SQLException e) {}
 			if (conn != null) try{conn.close();} catch(SQLException e) {}
@@ -86,7 +89,6 @@
 		        self.close();
 		        parent.location.replace("search.jsp"); 
      		</script>
-
 
 	 	<%}%>
 </body>

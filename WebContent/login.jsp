@@ -9,10 +9,10 @@
 <link rel="stylesheet" type="text/css" href="./stylesheets/login,signup.css">
 </head>
 <body>
-<div id = "container">
+<div class = "login">
 <a href = "main.jsp"><img src="images/4.jpg" alt="anicom로고"></a>
 
- <form action = "login_check.jsp"class="form-horizontal" method="post">
+ <form class="login"action = "login_check.jsp" method="post">
   <table>
 		<tbody>
 			<tr>
