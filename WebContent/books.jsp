@@ -16,7 +16,7 @@
 	String user_id = (String) session.getAttribute("id");
 	String hospital_id = request.getParameter("hospital_id");
 	String hospital_name = request.getParameter("hospital_name");
-	List<String> times =new LinkedList<String>(Arrays.asList("9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "18"));
+	List<String> times =new LinkedList<String>(Arrays.asList("9", "10", "11", "13", "14", "15", "16", "17", "18", "19"));
 
 	String time = "";
 	String date = "";
