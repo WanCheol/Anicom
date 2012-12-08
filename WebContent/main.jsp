@@ -32,7 +32,7 @@
 <title>Anicom에 오신것을 환영합니다</title>
 <link rel="stylesheet" href="./stylesheets/global.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
-	<script src="slides.min.jquery.js"></script>
+	<script src="js/slides.min.jquery.js"></script>
 	<script>
 		$(function(){
 			var startSlide = 1;
