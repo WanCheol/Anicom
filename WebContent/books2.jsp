@@ -73,6 +73,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="./stylesheets/main.css">
 </head>
 <body>
 <% if (errorMsgs.size() > 0) { %>
@@ -82,7 +83,7 @@
  						<li><%=msg %></li>
  					<% } %>
  				</ul>
-		 		<a onclick="history.back();">뒤로 돌아가기</a> 	
+		 		<a onclick="history.back();" class = "btn">뒤로 돌아가기</a> 	
 	 	<% } else if (result == 1) { %>
 	 		<script type="text/javascript">
 		        alert("완료되었습니다.");
