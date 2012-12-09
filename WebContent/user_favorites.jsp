@@ -14,9 +14,9 @@
 		String errorMsg = null;
 		
 		String hospital_name = "";
-		String hospital_id = "";
+		String user_id = "";		
 		
- 	  int id = 0;
+		int id = 0;
 	  try {
 	    id = Integer.parseInt(request.getParameter("id"));
 	  } catch (Exception e) {}
@@ -30,7 +30,7 @@
 			rs = stmt.executeQuery();
 			if(rs.next()){
 				hospital_name = rs.getString("hospital_name");
-				hospital_id = rs.getString("hospital_id");
+				user_id=rs.getString("user_id");
 			}
 			//rs = stmt.executeQuery();
 			
@@ -39,7 +39,7 @@
 	
 	
 	
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">

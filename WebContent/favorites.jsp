@@ -12,7 +12,7 @@ String dbPassword = "pwd001";
 
 request.setCharacterEncoding("utf-8");
 String user_id = (String)session.getAttribute("id");
-String hospital_id = request.getParameter("hospital_id");
+
 String hospital_name = request.getParameter("hospital_name");
 if (hospital_name != null) {
 	hospital_name = new String(hospital_name.getBytes("8859_1"), "UTF-8");
@@ -26,12 +26,11 @@ if (errorMsgs.size() == 0) {
 		Class.forName("com.mysql.jdbc.Driver");
 		conn = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
 		stmt = conn.prepareStatement(
-				"INSERT INTO favorites(user_id, hospital_id, hospital_name) " +
-				"VALUES(?, ?, ?)"
+				"INSERT INTO favorites(user_id, hospital_name) " +
+				"VALUES(?, ?)"
 				);
 		stmt.setString(1,  user_id);
-		stmt.setString(2,  hospital_id);
-		stmt.setString(3,  hospital_name);
+		stmt.setString(2,  hospital_name);
 
 		
 		result = stmt.executeUpdate();
@@ -39,12 +38,12 @@ if (errorMsgs.size() == 0) {
 			errorMsgs.add("등록에 실패하였습니다.");
 		}
 	} catch (SQLException e) {
-		//errorMsgs.add("SQL 에러: " + e.getMessage());
+		
 		%>
-		<script type="text/javascript">
+		 <script type="text/javascript">
       alert("이미 등록되어 있는 관심병원입니다. 확인해주세요");
-			//location.href(-1);    
-			</script>
+			location.href(-1);    
+			</script> 
 		<%
 	} finally {
 		// 무슨 일이 있어도 리소스를 제대로 종료
