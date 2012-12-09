@@ -36,8 +36,8 @@ a:link, a:visited{color:#000; text-decoration:none;}
 .form-actions_userinformaion{width:100px; margin-bottom:20px;}
 #content_userinformaion{width:900px;}
 .inform{margin-top:50px;height:200px;}
-#content #sign{margin:0 auto; color:#000; text-align:center;}
-
+#sign{width:500; height:300px; margin:0 auto; color:#000; text-align:center;}
+.btn_signup{margin-top:150px;}
 #content #navabar_add {width:960px;height:50px;}
 
 /* #content #searchbox{width:200px;height:380px;float:left; } */
