@@ -9,6 +9,7 @@ CREATE TABLE reports (
 	id int PRIMARY KEY AUTO_INCREMENT NOT NULL,
 	user_id varchar(20), 
 	hospital_id varchar(20), 
+	hospital_name varchar(20),
 	date date,
 	time int, 
 	patient VARCHAR(30),

@@ -9,6 +9,7 @@ CREATE TABLE books (
 	id int primary key AUTO_INCREMENT NOT NULL, 
 	user_id VARCHAR(20),
 	hospital_id VARCHAR(20),
+	hospital_name VARCHAR(20),
 	date date,
 	time int, 
 	patient VARCHAR(20),
