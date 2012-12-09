@@ -30,8 +30,10 @@
 	<div id="line"></div>
 	<div id="content">
 		<div id="sign">
+		<div class="btn_signup">
 			<a href = "user_signup.jsp" class="btn">일반회원</a>
 			<a href = "hospital_signup.jsp" class="btn">병원회원</a>
+		</div>
 		</div>
 	</div>
 	
