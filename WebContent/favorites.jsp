@@ -11,12 +11,18 @@ String dbUser = "id001";
 String dbPassword = "pwd001";
 
 request.setCharacterEncoding("utf-8");
-String user_id = (String)session.getAttribute("id");
+int id = 0;
+try {
+	id = Integer.parseInt(request.getParameter("id"));
+} catch (Exception e) {}
 
+String user_id = (String)session.getAttribute("id");
 String hospital_name = request.getParameter("hospital_name");
+
 if (hospital_name != null) {
 	hospital_name = new String(hospital_name.getBytes("8859_1"), "UTF-8");
 }
+
 
 List<String> errorMsgs = new ArrayList<String>();
 int result = 0;

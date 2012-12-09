@@ -13,9 +13,6 @@
 		String dbPassword = "pwd001";
 		String errorMsg = null;
 		
-		String hospital_name = "";
-		String user_id = "";		
-		
 		int id = 0;
 	  try {
 	    id = Integer.parseInt(request.getParameter("id"));
@@ -28,11 +25,13 @@
 			stmt = conn.prepareStatement("SELECT * FROM favorites WHERE user_id = ? ");
 			stmt.setString(1, s_id);
 			rs = stmt.executeQuery();
+	/*		
 			if(rs.next()){
 				hospital_name = rs.getString("hospital_name");
 				user_id=rs.getString("user_id");
 			}
-			//rs = stmt.executeQuery();
+	*/
+	//rs = stmt.executeQuery();
 			
 			
 %>
