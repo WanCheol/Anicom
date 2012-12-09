@@ -47,7 +47,7 @@
 			stmt.setString(2,  time);
 			stmt.setString(3, descript);
 			stmt.setString(4, patient);
-			stmt.setString(5, hospital_name);
+			stmt.setString(5, hospital_id);
 			stmt.setString(6, user_id);
 			result = stmt.executeUpdate();
 			if (result != 1) {
