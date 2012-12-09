@@ -13,6 +13,10 @@ String dbPassword = "pwd001";
 request.setCharacterEncoding("utf-8");
 String user_id = (String)session.getAttribute("id");
 String hospital_id = request.getParameter("hospital_id");
+String hospital_name = request.getParameter("hospital_name");
+if (hospital_name != null) {
+	hospital_name = new String(hospital_name.getBytes("8859_1"), "UTF-8");
+}
 
 List<String> errorMsgs = new ArrayList<String>();
 int result = 0;
@@ -22,11 +26,12 @@ if (errorMsgs.size() == 0) {
 		Class.forName("com.mysql.jdbc.Driver");
 		conn = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
 		stmt = conn.prepareStatement(
-				"INSERT INTO favorites(user_id, hospital_id) " +
-				"VALUES(?, ?)"
+				"INSERT INTO favorites(user_id, hospital_id, hospital_name) " +
+				"VALUES(?, ?, ?)"
 				);
 		stmt.setString(1,  user_id);
 		stmt.setString(2,  hospital_id);
+		stmt.setString(3,  hospital_name);
 
 		
 		result = stmt.executeUpdate();

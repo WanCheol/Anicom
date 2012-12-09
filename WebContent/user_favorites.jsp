@@ -13,22 +13,28 @@
 		String dbPassword = "pwd001";
 		String errorMsg = null;
 		
-	
+		String hospital_name = "";
+		String hospital_id = "";
+		
  	  int id = 0;
 	  try {
 	    id = Integer.parseInt(request.getParameter("id"));
 	  } catch (Exception e) {}
-
+		
 		try {
 		  Class.forName("com.mysql.jdbc.Driver");
 			conn = DriverManager.getConnection(dbUrl, dbUser, dbPassword);		
 			
 			stmt = conn.prepareStatement("SELECT * FROM favorites WHERE user_id = ? ");
 			stmt.setString(1, s_id);
-			
-
 			rs = stmt.executeQuery();
-
+			if(rs.next()){
+				hospital_name = rs.getString("hospital_name");
+				hospital_id = rs.getString("hospital_id");
+			}
+			//rs = stmt.executeQuery();
+			
+			
 %>
 	
 	
@@ -99,13 +105,13 @@
 				<tbody>
 					<% while(rs.next()){ %>
 						<tr>
-							<td><%=rs.getString("hospital_id")%></td>
+							<td><%=rs.getString("hospital_name")%></td>						
 							<td><a href="favorites_delete.jsp?id=<%=rs.getInt("id")%>" class="btn btn-mini">X</a></td>
 						</tr>
 					<% }%>
 				</tbody>
 			</table>
-			
+   	
 			<br/>
 		</div>
 				<div id="line"></div>

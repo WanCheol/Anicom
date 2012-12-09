@@ -35,7 +35,7 @@
 				name = rs.getString("name");
 				phone = rs.getString("phone");
 				address = rs.getString("address");
-				hospital_id=rs.getString("hospital_id"); //
+				hospital_id=rs.getString("hospital_id"); 
 			}
 		} catch (SQLException e) {
 			errorMsg = "SQL 에러: " + e.getMessage();
@@ -163,14 +163,14 @@
 </head>
 <body onload="initialize()">
 	<div id="hospitalinfo_top">
-		<div id="hospital_name"><%=name%></div>
+		<div id="hospital_name"><%=name%></div> 
 		<div id="button">
 			<form action="books.jsp" method="post">	
 				<input type='hidden' name='hospital_name' value='<%=name%>'>       <!--  -->
 				<input type='hidden' name='hospital_id' value='<%=hospital_id %>'> <!--  -->
 				<%-- <input type='hidden' name='user_id' value='<%=user_id%>'> --%>
 				<input class="btn"type="submit" value=" 예약 ">
-				<a href = "favorites.jsp?hospital_id=<%=hospital_id%>"><div class="btn">관심병원</div></a>
+				<a href = "favorites.jsp?hospital_name=<%=name%>"><div class="btn">관심병원</div></a>
 				
 			</form>
 		</div>
