@@ -88,7 +88,7 @@
 			</div>
 			<div id="r_footer">
 				발행일  : <br/>
-				병원이름 : <%=name %> &nbsp; 전화번호 : <%=phone %><br/>
+				병원이름 : <%=name %><input type='hidden' name='hospital_name' value='<%=name %>'> &nbsp; 전화번호 : <%=phone %><br/>
 				주소 : <%=address %>
 				<input type="hidden" name="hospital_id" value="<%=hospital_id%>"/>
 				<input type="hidden" name="phone" value="<%=phone %>"/>

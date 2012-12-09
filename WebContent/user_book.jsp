@@ -102,7 +102,7 @@
 				<tbody>
 				<% while(rs.next()){ %>
 					<tr>
-						<td><%=rs.getString("hospital_id")%></td>
+						<td><%=rs.getString("hospital_name")%></td>
 						<td><%=rs.getString("date") %></td>
 						<td>
 							<a href="books.jsp?id=<%=rs.getInt("id")%>" class="btn btn-mini">수정</a>

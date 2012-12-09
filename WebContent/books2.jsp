@@ -20,8 +20,8 @@
 		String patient = request.getParameter("patient");
 		String user_id=request.getParameter("user_id");
 		String hospital_id=request.getParameter("hospital_id");
-		String hospital_name=request.getParameter("name");
-	
+		String hospital_name=request.getParameter("hospital_name");
+		
 	List<String> errorMsgs = new ArrayList<String>();
 	int result = 0;
 	
@@ -40,15 +40,17 @@
 		try {
 			conn = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
 			stmt = conn.prepareStatement(
-					"INSERT INTO books(date,time,descript,patient,hospital_id,user_id) " +
-					"VALUES(?,?,?,?,?,?)"
+					"INSERT INTO books(date,time,descript,patient,hospital_name,user_id,hospital_id) " +
+					"VALUES(?,?,?,?,?,?,?)"
 					);
 			stmt.setString(1,  rdate);
 			stmt.setString(2,  time);
 			stmt.setString(3, descript);
 			stmt.setString(4, patient);
-			stmt.setString(5, hospital_id);
+			stmt.setString(5, hospital_name);
 			stmt.setString(6, user_id);
+			stmt.setString(7, hospital_id);
+			
 			result = stmt.executeUpdate();
 			if (result != 1) {
 				errorMsgs.add("등록에 실패하였습니다.");

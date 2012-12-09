@@ -24,7 +24,7 @@ if(session.getAttribute("id")==null){
 		    Class.forName("com.mysql.jdbc.Driver");
 			conn = DriverManager.getConnection(dbUrl, dbUser, dbPassword);		
 			
-			stmt = conn.prepareStatement("SELECT * FROM books WHERE hospital_id = ? ");
+			stmt = conn.prepareStatement("SELECT * FROM books WHERE hospital_id= ? ");
 			stmt.setString(1, s_id);
 			rs = stmt.executeQuery();
 

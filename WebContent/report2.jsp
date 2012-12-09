@@ -15,7 +15,8 @@
 	String descript =request.getParameter("descript");
 	String user_id=request.getParameter("user_id");
 	String hospital_id=request.getParameter("hospital_id");
-	String name = request.getParameter("name");
+	String hospital_name=request.getParameter("hospital_name");
+	//String name = request.getParameter("name");
 	Calendar cal = Calendar.getInstance();
 			
 	List<String> errorMsgs = new ArrayList<String>();
@@ -36,8 +37,8 @@
 			Class.forName("com.mysql.jdbc.Driver");
 			conn = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
 			stmt = conn.prepareStatement(
-					"INSERT INTO reports(patient,comment,descript,date,user_id,hospital_id) " +
-					"VALUES(?,?,?,?,?,?)"
+					"INSERT INTO reports(patient,comment,descript,date,user_id,hospital_id,hospital_name) " +
+					"VALUES(?,?,?,?,?,?,?)"
 					);
 			stmt.setString(1, patient );
 			stmt.setString(2, comment);
@@ -45,6 +46,7 @@
 			stmt.setDate(4, new java.sql.Date(cal.getTimeInMillis()));
 			stmt.setString(5, user_id);
 			stmt.setString(6, hospital_id);
+			stmt.setString(7,hospital_name);
 			result = stmt.executeUpdate();
 			if (result != 1) {
 				errorMsgs.add("등록에 실패하였습니다.");

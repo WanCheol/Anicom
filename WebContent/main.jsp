@@ -20,7 +20,7 @@
 	try {
 	    Class.forName("com.mysql.jdbc.Driver");
 		conn = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
-		stmt = conn.prepareStatement("select hospital_id, count(hospital_id) as cnt from books group by hospital_id order by cnt desc limit 0,3");
+		stmt = conn.prepareStatement("select hospital_name, count(hospital_name) as cnt from books group by hospital_name order by cnt desc limit 0,3");
 		rs=stmt.executeQuery();
 
 %>
@@ -107,7 +107,7 @@
 				while(rs.next()){ %>
 				<tr>
 					<td><%out.print(grade); %></td> 
-					<td><a href="search.jsp"><%=rs.getString("hospital_id") %></a></td>
+					<td><a href="search.jsp"><%=rs.getString("hospital_name") %></a></td>
 				</tr>	
 					<%
 					grade++; 

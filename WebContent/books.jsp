@@ -54,7 +54,7 @@
 				patient = rs.getString("patient");
 				time = rs.getString("time");
 				descript = rs.getString("descript");
-				hospital_id = rs.getString("hospital_id");
+				hospital_name = rs.getString("hospital_name");
 			}
 		} else {
 			actionUrl = "books2.jsp";
@@ -99,9 +99,9 @@
 			}
 		%>
 
-		<input type='hidden' name='name' value='<%=hospital_name%>' /> <input
+		<input type='hidden' name='hospital_name' value='<%=hospital_name%>' /> <input
 			type='hidden' name='hospital_id' value="<%=hospital_id%>" /> <input
-			type='hidden' name='user_id' value="<%=user_id%>">
+			type='hidden' name='user_id' value="<%=user_id%>"> 
 		<div id="book_form">
 			<div class="control-group">
 				날짜 선택 :

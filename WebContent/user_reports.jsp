@@ -99,7 +99,7 @@ if(session.getAttribute("id")==null){
 						
 				<% while(rs.next()){ %>
 					<tr>
-						<td><%=rs.getString("hospital_id")%></td>
+						<td><%=rs.getString("hospital_name")%></td>
 						<td><%=rs.getString("date") %></td>
 						<td>
 							<!-- <input type="button" value=" 소견서작성 " id="change">	 -->
